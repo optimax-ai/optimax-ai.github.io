@@ -1,571 +1,497 @@
 <!DOCTYPE html>
-<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if IE 9]> <html lang="zh-CN" class="ie9"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="zh-CN">
 <!--<![endif]-->
-	<head>
-		<meta charset="utf-8">
-		<title>OptiMax AI</title>
-		<meta name="description" content="OptiMax AI">
-		<meta name="author" content="Yuan Qu">
-		<meta name="keywords" content="OptiMax AI, Optimal, AI, Artificial Intelligence, Machine Learning, Deep Learning, Reinforcement Learning, Large Language Models, LLM,  Supply Chain, Logistics, Inventory Management, Demand Forecasting, Price Optimization, Revenue Management">
-		<meta name="copyright" content="OptiMax AI">
-		<meta name="Robots" contect="all">
-		<!-- Mobile Meta -->
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<head>
+    <meta charset="utf-8">
+    <title>OptiMax AI | 企业级私有供应链AI决策大脑</title>
+    <meta name="description" content="OptiMax AI是企业级私有供应链AI决策大脑，提供安全、智能、可定制的AI解决方案，助力企业数智化转型。">
+    <meta name="author" content="OptiMax AI Limited">
+    <meta name="keywords" content="OptiMax AI, 企业AI, 供应链AI, 大模型, 人工智能, 机器学习, 深度学习, 强化学习, 运筹优化, 供应链管理, 库存优化, 需求预测, 定价优化, 收益管理, 香港AI公司">
+    <meta name="copyright" content="OptiMax AI Limited">
+    <meta name="robots" content="index, follow">
+    <!-- Mobile Meta -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="OptiMax AI | 企业级私有供应链AI决策大脑">
+    <meta property="og:description" content="AI赋能、数据驱动，助力企业数智转型">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://optimax.hk">
+    <meta property="og:image" content="images/og-image.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg">
+    <link rel="shortcut icon" href="images/favicon/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
 
-		<!-- Favicon -->
-		<link rel="icon" type="image/png" href="images/favicon/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="images/favicon/favicon.svg" />
-		<link rel="shortcut icon" href="images/favicon/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png" />
-		<link rel="manifest" href="images/favicon/site.webmanifest" />
+    <!-- Web Fonts - 使用更可靠的CDN -->
+    <link href="https://fonts.lug.ustc.edu.cn/css2?family=Open+Sans:wght@300;400;700;800&family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 
-		<!-- Web Fonts -->
-		<link href='http://fonts.useso.com/css?family=Open+Sans:400italic,700italic,400,700,300&amp;subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-		<link href='http://fonts.useso.com/css?family=Raleway:700,400,300' rel='stylesheet' type='text/css'>
+    <!-- Bootstrap core CSS -->
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-		<!-- Bootstrap core CSS -->
-		<link href="bootstrap/css/bootstrap.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link href="fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet">
 
-		<!-- Font Awesome CSS -->
-		<link href="fonts/font-awesome/css/font-awesome.css" rel="stylesheet">
+    <!-- Plugins -->
+    <link href="css/animations.css" rel="stylesheet">
 
-		<!-- Plugins -->
-		<link href="css/animations.css" rel="stylesheet">
+    <!-- Worthy core CSS file -->
+    <link href="css/style.css" rel="stylesheet">
 
-		<!-- Worthy core CSS file -->
-		<link href="css/style.css" rel="stylesheet">
+    <!-- Custom css -->
+    <link href="css/custom.css" rel="stylesheet">
+    
+    <!-- 内联样式优化 -->
+    <style>
+        /* 确保图片响应式 */
+        .sec-img, .image-box img {
+            max-width: 100%;
+            height: auto;
+        }
+        .banner-caption h1 {
+            word-break: break-word;
+        }
+        @media (max-width: 768px) {
+            .banner-caption h1 {
+                font-size: 1.8rem;
+            }
+            .banner-caption .lead {
+                font-size: 1rem;
+            }
+            .footer-content {
+                margin-left: 0 !important;
+                padding: 0 15px;
+            }
+        }
+    </style>
+</head>
 
-		<!-- Custom css --> 
-		<link href="css/custom.css" rel="stylesheet">
-	</head>
+<body class="no-trans">
+    <!-- scrollToTop -->
+    <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
 
-	<body class="no-trans">
-		<!-- scrollToTop -->
-		<!-- ================ -->
-		<div class="scrollToTop"><i class="icon-up-open-big"></i></div>
+    <!-- header start -->
+    <header class="header fixed clearfix navbar navbar-fixed-top">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="header-left clearfix">
+                        <!-- logo -->
+                        <div class="logo smooth-scroll">
+                            <a href="#banner"><img id="logo" src="images/logo.png" alt="OptiMax AI 首页"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-8">
+                    <div class="header-right clearfix">
+                        <div class="main-navigation animated">
+                            <nav class="navbar navbar-default" role="navigation">
+                                <div class="container-fluid">
+                                    <div class="navbar-header">
+                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                            <span class="sr-only">切换导航</span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                            <span class="icon-bar"></span>
+                                        </button>
+                                    </div>
+                                    <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+                                        <ul class="nav navbar-nav navbar-right">
+                                            <li class="active"><a href="#banner">主页</a></li>
+                                            <li><a href="#about">公司简介</a></li>
+                                            <li><a href="#portfolio">创始团队</a></li>
+                                            <li><a href="#services">诚聘英才</a></li>
+                                            <li><a href="#contact">联系我们</a></li>
+											<li><a href="index_en.html" class="lang-switch">English</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- header end -->
 
-		<!-- header start -->
-		<!-- ================ --> 
-		<header class="header fixed clearfix navbar navbar-fixed-top">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-4">
+    <!-- banner start -->
+    <div id="banner" class="banner">
+        <div class="banner-image"></div>
+        <div class="banner-caption">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
+                        <h1 class="text-center">OptiMax 企业优智大模型</h1>
+                        <p class="lead text-center"><strong>AI赋能、数据驱动，助力企业数智转型</strong></p>
+                        <hr class="divider">
+                        <h3 class="text-center">做安全、实用、智能的企业私有供应链AI决策大脑</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- banner end -->
 
-						<!-- header-left start -->
-						<!-- ================ -->
-						<div class="header-left clearfix">
+    <!-- 公司简介 section -->
+    <div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 id="about" class="title text-center">公司<span>简介</span></h1>
+                    <p class="lead text-center">做安全、可用、靠谱的企业私有供应链AI决策大脑</p>
+                    <div class="space"></div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <img class="sec-img img-responsive" src="images/OptiMax-2line-tight.jpg" alt="OptiMax AI 公司展示图">
+                            <div class="space"></div>
+                        </div>
+                        <div class="col-md-6">
+                            <p>OptiMax AI Limited 是一家植根于香港的尖端人工智能企业，致力于研发安全、可控、高效的企业级私有化供应链大模型，立志成为驱动企业智慧运营的"AI决策大脑"。公司于2025年9月在香港创立，是香港创新科技署RAISe+项目重点支持的创业团队。我们以AI赋能和数据驱动为核心，助力全球企业实现深刻的数智化转型与决策升级。</p>
+                            <p>公司由香港大学副校长、国际运筹学与供应链管理权威学者申作军教授领衔创立。我们汇聚了一支由来自全球顶尖高校的杰出青年科学家与工程师组成的核心团队，深度融合AI、运筹优化与供应链管理的前沿研究。依托香港大学一流的科研创新平台，OptiMax AI将前沿学术成果转化为解决企业实际挑战的创新方案。</p>
+                            <p>目前，OptiMax AI已与TCL、中国移动等多家知名企业达成合作意向，打造下一代企业AI引擎。公司已完成天使轮融资，发展势头强劲，目标成为AI决策领域的全球创新力量。</p>
+                            <p><strong>OptiMax 企业优智大模型</strong> 正在紧锣密鼓开发中，预计2026年9月面向市场。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-							<!-- logo -->
-							<div class="logo smooth-scroll">
-								<a href="#banner"><img id="logo" src="images/logo.png" alt="OptiMax AI"></a>
-							</div>
+    <!-- 创始团队标题区 -->
+    <div class="default-bg space">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2">
+                    <h1 class="text-center" id="portfolio">创始团队</h1>
+                    <p class="text-center lead">顶尖学者与行业精英的强强联合</p>
+                </div>
+            </div>
+        </div>
+    </div>
 
-							<!-- name-and-slogan -->
-							<!--<div class="site-name-and-slogan smooth-scroll">
-								<div class="site-name"><a href="#banner">OptiMax AI</a></div>
-								<div class="site-slogan">Reliable and Smart AI for Business</div>
-							</div>-->
+    <!-- 创始团队成员展示 -->
+    <div class="section">
+        <div class="container">
+            <div class="separator"></div>
+            <div class="row object-non-visible" data-animation-effect="fadeIn">
+                <div class="col-md-12">
+                    <div class="isotope-container row grid-space-20">
+                        <!-- 申作军教授 -->
+                        <div class="col-sm-6 col-md-3 isotope-item offline">
+                            <div class="image-box">
+                                <div class="overlay-container">
+                                    <img src="images/maxshen.png" alt="申作军教授 香港大学副校长" class="img-responsive">
+                                    <a class="overlay" data-toggle="modal" data-target="#project-1">
+                                        <i class="fa fa-search-plus"></i>
+                                        <span>详情</span>
+                                    </a>
+                                </div>
+                                <a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-1">申作军教授</a>
+                            </div>
+                            <div class="modal fade" id="project-1" tabindex="-1" role="dialog" aria-labelledby="project-1-label" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                                            <h4 class="modal-title" id="project-1-label">申作军教授</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>申作军教授</h3>
+                                            <h4>BEng, ME, MS, PhD, FINFORMS, FPOMS, FHKEng</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p>申作军教授是香港大学副校长（研究），工程学院及经济及工商管理学院双聘讲座教授，同时兼任研究学院院长、技术转移处署理处长、知识交流办公室署理总监。他是同心基金数据科学研究院创始院长。</p>
+                                                    <p>申教授于2000年在美国西北大学取得博士学位，同年加入佛罗里达大学任助理教授，2004年加入加州大学伯克利分校，后晋升为校长教授及工业工程及运筹学系系主任。他曾任清华-伯克利深圳学院中心主任及清华大学名誉教授。申教授于2021年加入港大。</p>
+                                                    <p>申教授的主要研究领域为物流及供应链管理、数据驱动决策及系统优化。他是美国运筹学及管理科学研究协会(INFORMS)院士、美国生产与运作管理学会(POMS)院士及前主席、香港工程科学院院士。</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <img src="images/maxshen.png" alt="申作军教授" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-						</div>
-						<!-- header-left end -->
+                        <!-- 曲源博士 -->
+                        <div class="col-sm-6 col-md-3 isotope-item online">
+                            <div class="image-box">
+                                <div class="overlay-container">
+                                    <img src="images/yuanqu.jpg" alt="曲源博士 香港大学博士后" class="img-responsive">
+                                    <a class="overlay" data-toggle="modal" data-target="#project-2">
+                                        <i class="fa fa-search-plus"></i>
+                                        <span>详情</span>
+                                    </a>
+                                </div>
+                                <a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-2">曲源博士</a>
+                            </div>
+                            <div class="modal fade" id="project-2" tabindex="-1" role="dialog" aria-labelledby="project-2-label" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                                            <h4 class="modal-title" id="project-2-label">曲源博士</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>曲源博士</h3>
+                                            <h4>BEng, BMgmt, MS, PhD</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p>曲源博士现为香港大学数据与系统工程系博士后研究员，与申作军教授开展合作研究。此前曾任罗格斯大学讲师。</p>
+                                                    <p>曲源博士在罗格斯大学管理科学与信息系统系获得博士学位，主攻运筹学方向。主要研究领域为收益管理、博弈论、机器学习、人工智能等。曲博士曾有多段创业和产业界经历，有丰富软件架构设计及信息化项目建设实施经验，参与开发项目30余个。</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <img src="images/yuanqu.jpg" alt="曲源博士" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-					</div>
-					<div class="col-md-8">
+                        <!-- 张普竣博士 -->
+                        <div class="col-sm-6 col-md-3 isotope-item online">
+                            <div class="image-box">
+                                <div class="overlay-container">
+                                    <img src="images/pjzhang.jpg" alt="张普竣博士" class="img-responsive">
+                                    <a class="overlay" data-toggle="modal" data-target="#project-3">
+                                        <i class="fa fa-search-plus"></i>
+                                        <span>详情</span>
+                                    </a>
+                                </div>
+                                <a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-3">张普竣博士</a>
+                            </div>
+                            <div class="modal fade" id="project-3" tabindex="-1" role="dialog" aria-labelledby="project-3-label" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                                            <h4 class="modal-title" id="project-3-label">张普竣博士</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>张普竣博士</h3>
+                                            <h4>BEng, PhD</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p>张普竣于清华大学获得工业工程博士学位，现为香港大学博士后研究员，在运筹优化与智能管理领域持续开展前沿研究。</p>
+                                                    <p>他专注于运筹学、智能交通系统及运营管理等领域，曾与美团、锐联科技、北京交通发展研究院、中国铁路等知名企业和机构开展深入合作，致力于将理论研究成果应用于实际业务场景。</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <img src="images/pjzhang.jpg" alt="张普竣博士" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
 
-						<!-- header-right start -->
-						<!-- ================ -->
-						<div class="header-right clearfix">
+                        <!-- 刘安邦博士 -->
+                        <div class="col-sm-6 col-md-3 isotope-item editor">
+                            <div class="image-box">
+                                <div class="overlay-container">
+                                    <img src="images/abliu.jpg" alt="刘安邦博士" class="img-responsive">
+                                    <a class="overlay" data-toggle="modal" data-target="#project-4">
+                                        <i class="fa fa-search-plus"></i>
+                                        <span>详情</span>
+                                    </a>
+                                </div>
+                                <a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-4">刘安邦博士</a>
+                            </div>
+                            <div class="modal fade" id="project-4" tabindex="-1" role="dialog" aria-labelledby="project-4-label" aria-hidden="true">
+                                <div class="modal-dialog modal-lg">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                                            <h4 class="modal-title" id="project-4-label">刘安邦博士</h4>
+                                        </div>
+                                        <div class="modal-body">
+                                            <h3>刘安邦博士</h3>
+                                            <h4>BEng, PhD</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <p>刘安邦博士于清华大学获得自动化博士学位，现为香港大学博士后研究员，长期专注于智能制造与智慧供应链领域的创新研究。</p>
+                                                    <p>刘安邦博士在自动化与智能制造相关领域积累了超过六年的深入研究经验，并先后参与多项由国家重点研发计划、国家自然科学基金等国家级科研项目资助的重要课题。</p>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <img src="images/abliu.jpg" alt="刘安邦博士" class="img-responsive">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-sm btn-default" data-dismiss="modal">关闭</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-							<!-- main-navigation start -->
-							<!-- ================ -->
-							<div class="main-navigation animated">
+    <!-- 诚聘英才 section -->
+    <div class="section translucent-bg bg-image-1 blue">
+        <div class="container object-non-visible" data-animation-effect="fadeIn">
+            <h1 id="services" class="text-center title">诚聘英才</h1>
+            <div class="space text-center">
+                <p class="lead">我们正在寻找不甘平庸、渴望用技术创造真实价值的同行者。</p>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="media">
+                        <div class="media-body text-right">
+                            <h4 class="media-heading">机器学习算法工程师</h4>
+                            <p>"AI决策大脑"核心智慧的缔造者。需要构建精准的模型，深入理解制造业的脉搏，将业务问题转化为数学问题，并用稳定可靠的代码解决。</p>
+                        </div>
+                        <div class="media-right"><i class="fa fa-magic"></i></div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body text-right">
+                            <h4 class="media-heading">运筹优化算法工程师</h4>
+                            <p>企业"效率引擎"的核心建造者。运用严谨的优化理论与启发式算法，将复杂的业务规则转化为清晰的数学模型，为企业运营提供最优解。</p>
+                        </div>
+                        <div class="media-right"><i class="fa fa-sitemap"></i></div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body text-right">
+                            <h4 class="media-heading">Web全栈工程师</h4>
+                            <p>支撑所有AI应用与数据服务的"基座"建造者。确保算法科学家和数据工程师在坚实、高效的平台上进行创新。</p>
+                        </div>
+                        <div class="media-right"><i class="fa fa-cogs"></i></div>
+                    </div>
+                    <div class="media">
+                        <div class="media-body text-right">
+                            <h4 class="media-heading">数据平台工程师</h4>
+                            <p>智能产品的"地基"建造者。设计稳健的数据桥梁与通道，确保数据安全、高效地流动与融合。</p>
+                        </div>
+                        <div class="media-right"><i class="fa fa-database"></i></div>
+                    </div>
+                </div>
+                <div class="space visible-xs"></div>
+                <div class="col-sm-6">
+                    <div class="media">
+                        <div class="media-left"><i class="fa fa-cloud"></i></div>
+                        <div class="media-body">
+                            <h4 class="media-heading">大模型算法工程师</h4>
+                            <p>连接前沿AI研究与企业级可靠应用的核心桥梁。亲手构建、优化并交付可靠、高效的企业级大模型智能系统。</p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"><i class="fa fa-list"></i></div>
+                        <div class="media-body">
+                            <h4 class="media-heading">产品主管</h4>
+                            <p>技术价值与客户业务成功之间的"翻译官"与"总设计师"。深入制造业、供应链等复杂业务场景，定义能够为客户创造真实价值的AI产品。</p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"><i class="fa fa-car"></i></div>
+                        <div class="media-body">
+                            <h4 class="media-heading">商务拓展</h4>
+                            <p>前沿AI技术与企业现实需求之间的"翻译官"与"连接器"。深入客户核心痛点，共同绘制企业数智化转型蓝图。</p>
+                        </div>
+                    </div>
+                    <div class="media">
+                        <div class="media-left"><i class="fa fa-users"></i></div>
+                        <div class="media-body">
+                            <h4 class="media-heading">运营主管</h4>
+                            <p>公司高效运转的"润滑剂"和团队温暖的"守护者"。有机会接触公司运营的方方面面，与公司一同成长。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-								<!-- navbar start -->
-								<!-- ================ -->
-								<nav class="navbar navbar-default" role="navigation">
-									<div class="container-fluid">
+    <!-- 为何加入OptiMax AI -->
+    <div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <h1 class="title text-center">为何加入<span>OptiMax AI</span></h1>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <h3 class="text-center">参与从0到1的创造</h3>
+                            <p>您将不再是庞大机器中的螺丝钉，而是直接参与核心产品的塑造，见证并推动伟大想法从蓝图变为现实。</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="text-center">与顶尖大脑共事</h3>
+                            <p>与申教授及团队中诸多优秀学者日常协作，获得前所未有的技术视野与思维提升。</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="text-center">解决高价值挑战</h3>
+                            <p>您的代码与算法将直接应用于行业龙头企业的真实场景，解决最核心、最复杂的决策难题。</p>
+                        </div>
+                        <div class="col-md-3">
+                            <h3 class="text-center">广阔的职业前景</h3>
+                            <p>作为早期核心成员，获得快速的职业成长路径、极具竞争力的薪酬package以及承担关键职责的机会。</p>
+                        </div>
+                    </div>
+                    <div class="space">
+                        <p>更多岗位描述与需求详见 <a target="_blank" href="https://docs.qq.com/doc/p/4edd19e2e5a5571ec6618d4416ca6252ec4aa019" rel="noopener noreferrer">岗位详情文档</a>。</p>
+                        <p>如果您已经准备好迎接挑战，请将您的个人简历发送至 <strong>hr@optimax.hk</strong>。</p>
+                        <p>为帮助我们快速处理，请务必使用邮件主题格式：<strong>【应聘】-姓名-意向岗位-(全职/实习)</strong>。我们期待您的加入，共同定义企业的未来！</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-										<!-- Toggle get grouped for better mobile display -->
-										<div class="navbar-header">
-											<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-												<span class="sr-only">Toggle navigation</span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-												<span class="icon-bar"></span>
-											</button>
-										</div>
+    <!-- footer start -->
+    <footer id="footer">
+        <div class="section translucent-bg bg-image-2">
+            <div class="container">
+                <h1 class="title text-center" id="contact">联系我们</h1>
+                <div class="space"></div>
+                <div class="row">
+                    <div class="footer-content col-md-6 col-md-offset-3">
+                        <ul class="list-icons text-center">
+                            <li><i class="fa fa-map-marker pr-10"></i> 地址：数码港3座F区5层创业中心7室，中国香港</li>
+                            <li><i class="fa fa-user pr-10"></i> 应聘：<a href="mailto:hr@optimax.hk">hr@optimax.hk</a></li>
+                            <li><i class="fa fa-envelope-o pr-10"></i> 邮箱：<a href="mailto:admin@optimax.hk">admin@optimax.hk</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="subfooter">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p class="text-center">Copyright © 2025 OptiMax AI Limited. All Rights Reserved.<br>Webpage template: Worthy, Designed by HtmlCoder.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- footer end -->
 
-										<!-- Collect the nav links, forms, and other content for toggling -->
-										<div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-											<ul class="nav navbar-nav navbar-right">
-												<li class="active"><a href="#banner">主页</a></li>
-												<li><a href="#about">公司简介</a></li>
-												<li><a href="#portfolio">创始团队</a></li>
-												<li><a href="#services">诚聘英才</a></li>
-												<!-- <li><a href="#clients">海外项目</a></li> -->
-												<li><a href="#contact">联系我们</a></li>
-											</ul>
-										</div>
-
-									</div>
-								</nav>
-								<!-- navbar end -->
-
-							</div>
-							<!-- main-navigation end -->
-
-						</div>
-						<!-- header-right end -->
-
-					</div>
-				</div>
-			</div>
-		</header>
-		<!-- header end -->
-
-		<!-- banner start -->
-		<!-- ================ -->
-		<div id="banner" class="banner">
-			<div class="banner-image"></div>
-			<div class="banner-caption">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-							<h1 class="text-center">OptiMax 企业优智大模型</h1>
-							<p class="lead text-center">AI赋能、数据驱动，助力企业数智转型</p>
-							<hr class="divider">
-							<h3 align="center">做安全、实用、智能的企业私有供应链AI决策大脑</h3>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- banner end -->
-
-		<!-- section start -->
-
-		<!-- ================ -->
-		<div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 id="about" class="title text-center">公司<span>简介</span></h1>
-						<p class="lead text-center">做安全、可用、靠谱的企业私有供应链AI决策大脑</p>
-						<div class="space"></div>
-						<div class="row">
-							<div class="col-md-6">
-								<img class="sec-img" src="images/OptiMax-2line-tight.jpg" alt="">
-								<div class="space"></div>
-							</div>
-							<div class="col-md-6">
-								<p>OptiMax AI Limited 是一家植根于香港的尖端人工智能企业，致力于研发安全、可控、高效的企业级私有化供应链大模型，立志成为驱动企业智慧运营的“AI决策大脑”。公司于2025年9月在香港创立，凭借卓越的技术愿景与顶尖的团队构成，是香港创新科技署RAISe+项目重点支持的创业团队。我们以AI赋能和数据驱动为核心，助力全球企业实现深刻的数智化转型与决策升级。</p>								
-								<p>公司由香港大学副校长、国际运筹学与供应链管理权威学者申作军教授领衔创立。在他的引领下，我们汇聚了一支由来自全球顶尖高校的杰出青年科学家与工程师组成的核心团队，深度融合AI、运筹优化与供应链管理的前沿研究。依托香港大学一流的科研创新平台，OptiMax AI将最前沿的学术成果转化为解决企业实际挑战的创新方案，推动AI技术在企业核心决策中发挥关键价值。</p>
-								<p>目前，OptiMax AI已与TCL、中国移动等多家知名企业达成合作意向，打造下一代企业AI引擎。公司天使轮获得大量融资，发展势头强劲，目标成为AI决策领域的全球创新力量。</p>
-								<p>OptiMax 企业优智大模型的开发工作正在筹备当中，预计2026年9月面向市场。</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="default-bg space">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-8 col-md-offset-2">
-						<h1 class="text-center" id="portfolio">创始团队</h1>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="section">
-			<div class="container">
-				<!-- <h1 class="text-center title">创始<span>团队</span></h1> -->
-				<div class="separator"></div>		
-				<div class="row object-non-visible" data-animation-effect="fadeIn">
-					<div class="col-md-12">
-						<!-- portfolio items start -->
-						<div class="isotope-container row grid-space-20">
-							<div class="col-sm-6 col-md-3 isotope-item offline">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/maxshen.png" alt="">
-										<a class="overlay" data-toggle="modal" data-target="#project-1">
-											<i class="fa fa-search-plus"></i>
-											<span>详情</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-1">申作军教授 董事长/创始人</a>
-								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-1" tabindex="-1" role="dialog" aria-labelledby="project-1-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-1-label">申作军教授 董事长/创始人</h4>
-											</div>
-											<div class="modal-body">
-												<h3>申作军教授</h3>
-												<h4>BEng, ME, MS, PhD, FINFORMS, FPOMS, FHKEng</h4>
-												<div class="row">
-													<div class="col-md-6">
-														<p>申作军教授是香港大学副校长（研究），工程学院及经济及工商管理学院的双聘讲座教授、同时兼任研究学院院长、技术转移处署理处长、知识交流办公室署理总监。他是同心基金数据科学研究院创始院长。</p>
-														<p>申作军教授于 2000年在美国西北大学取得博士学位，同年加入佛罗里达大学任助理教授，开始其学术生涯，并于2004年加入加州大学伯克利分校，及后晋升为校长教授及工业工程及运筹学系系主任，以及土木与环境工程系教授。他曾任清华 - 伯克利深圳学院中心主任及清华大学名誉教授。申教授于2021年加入港大。</p>
-														<p>申教授的主要研究领域为物流及供应链管理、数据驱动决策及系统优化，其研究项目涉猎多个范畴，包括商业、能源系统、交通系统、智慧城市、医疗保健管理和环境保护。他与各行业紧密合作，且获得多个政府机构及私营企业的学术研究拨款。他指导的博士生和博士后众多，毕业后任职于北美、欧洲及亚洲的顶尖大学以及世界各地重要的科技企业。</p>
-														<p>申教授是其学术领域内的世界级顶尖学者，他是美国运筹学及管理科学研究协会（Institute for Operations Research and the Management Sciences，INFORMS）院士，美国生产与运作管理学会（Production and Operations Management Society，POMS）院士和前主席，香港工程科学院院士，以及INFORMS的区位分析学会（The Society of Locational Analysis）的前任主席。</p>
-													</div>
-													<div class="col-md-6">
-														<img src="images/maxshen.png" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal end -->
-							</div>
-
-							<div class="col-sm-6 col-md-3 isotope-item online">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/yuanqu.jpg" alt="">
-										<a class="overlay" data-toggle="modal" data-target="#project-2">
-											<i class="fa fa-search-plus"></i>
-											<span>详情</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-2">曲源博士 CEO</a>
-								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-2" tabindex="-1" role="dialog" aria-labelledby="project-2-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-2-label">曲源博士 CEO</h4>
-											</div>
-											<div class="modal-body">
-												<h3>曲源博士</h3>
-												<h4>BEng, BMgmt, MS, PhD</h4>
-												<div class="row">
-													<div class="col-md-6">
-														<p>曲源博士现为香港大学数据与系统工程系博士后研究员，与申作军教授开展合作研究。此前曾任罗格斯大学讲师。</p>
-														<p>曲源博士在罗格斯大学管理科学与信息系统系获得博士学位，主攻运筹学方向，师从杨健教授。此前分别获得罗格斯大学信息技术与分析硕士学位（师从熊辉教授），以及电子科技大学电子信息工程学士学位和工商管理学士学位。曲博士的主要研究领域为收益管理、博弈论、信息系统、机器学习、人工智能等，其研究项目涉猎商业领域的多个范畴，包括产品定价、库存管理、营销策略、市场投放、组织行为和推荐系统等。</p>
-														<p>曲博士曾有多段创业和产业界经历，有丰富软件架构设计及信息化项目建设实施经验，参与开发项目30余个。</p>
-													</div>
-													<div class="col-md-6">
-														<img src="images/yuanqu.jpg" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal end -->
-							</div>
-							
-							<div class="col-sm-6 col-md-3 isotope-item online">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/pjzhang.jpg" alt="">
-										<a class="overlay" data-toggle="modal" data-target="#project-3">
-											<i class="fa fa-search-plus"></i>
-											<span>详情</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-3">张普竣博士 首席科学家</a>
-								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-3" tabindex="-1" role="dialog" aria-labelledby="project-3-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-3-label">张普竣博士 首席科学家</h4>
-											</div>
-											<div class="modal-body">
-												<h3>张普竣博士</h3>
-												<h4>BEng, PhD</h4>
-												<div class="row">
-													<div class="col-md-6">
-														<p>张普竣于清华大学获得工业工程博士学位，现为香港大学博士后研究员，在运筹优化与智能管理领域持续开展前沿研究。</p>
-														<p>他专注于运筹学、智能交通系统及运营管理等领域的研究工作，至今已积累逾六年的扎实科研经验。在研究过程中，他积极参与多个校企合作项目，曾与美团、锐联科技、北京交通发展研究院、中国铁路等知名企业和机构开展深入合作，致力于将理论研究成果应用于实际业务场景。</p>
-													</div>
-													<div class="col-md-6">
-														<img src="images/pjzhang.jpg" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal end -->
-							</div>
-							
-							<div class="col-sm-6 col-md-3 isotope-item editor">
-								<div class="image-box">
-									<div class="overlay-container">
-										<img src="images/abliu.jpg" alt="">
-										<a class="overlay" data-toggle="modal" data-target="#project-4">
-											<i class="fa fa-search-plus"></i>
-											<span>详情</span>
-										</a>
-									</div>
-									<a class="btn btn-default btn-block" data-toggle="modal" data-target="#project-4">刘安邦博士 CTO</a>
-								</div>
-								<!-- Modal -->
-								<div class="modal fade" id="project-4" tabindex="-1" role="dialog" aria-labelledby="project-4-label" aria-hidden="true">
-									<div class="modal-dialog modal-lg">
-										<div class="modal-content">
-											<div class="modal-header">
-												<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-												<h4 class="modal-title" id="project-4-label">刘安邦博士 CTO</h4>
-											</div>
-											<div class="modal-body">
-												<h3>刘安邦博士</h3>
-												<h4>BEng, PhD</h4>
-												<div class="row">
-													<div class="col-md-6">
-														<p>刘安邦博士于清华大学获得自动化博士学位，现为香港大学博士后研究员，长期专注于智能制造与智慧供应链领域的创新研究。</p>
-														<p>刘安邦博士在自动化与智能制造相关领域积累了超过六年的深入研究经验，并先后参与多项由国家重点研发计划、国家自然科学基金等国家级科研项目资助的重要课题，在产研结合与技术落地方面具有扎实的实践积累。</p>
-													</div>
-													<div class="col-md-6">
-														<img src="images/abliu.jpg" alt="">
-													</div>
-												</div>
-											</div>
-											<div class="modal-footer">
-												<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
-											</div>
-										</div>
-									</div>
-								</div>
-								<!-- Modal end -->
-							</div>
-						</div>
-						<!-- portfolio items end -->
-					
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="section translucent-bg bg-image-1 blue">
-			<div class="container object-non-visible" data-animation-effect="fadeIn">
-				<h1 id="services"  class="text-center title">诚聘英才</h1>
-				<div class="space text-center">
-					<p>我们正在寻找不甘平庸、渴望用技术创造真实价值的同行者。</p>
-				</div>
-				<div class="row">
-					<div class="col-sm-6">
-						<div class="media">
-							<div class="media-body text-right">
-								<h4 class="media-heading">机器学习算法工程师</h4>
-								<p>“AI决策大脑”核心智慧的缔造者。算法将直接作用于企业运营中最复杂、最具挑战的环节。不仅需要构建精准的模型，更需要深入理解制造业的脉搏，将业务问题转化为数学问题，再用稳定可靠的代码将其解决。</p>
-							</div>
-							<div class="media-right">
-								<i class="fa fa-magic"></i>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-body text-right">
-								<h4 class="media-heading">运筹优化算法工程师</h4>
-								<p>是企业“效率引擎”的核心建造者。解决那些经典的却直接影响企业利润的运营决策问题。将运用严谨的优化理论与启发式算法，将复杂的业务规则和约束转化为清晰的数学模型，并设计高效算法为企业运营提供最优解。</p>
-							</div>
-							<div class="media-right">
-								<i class="fa fa-sitemap"></i>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-body text-right">
-								<h4 class="media-heading">Web开发工程师</h4>
-								<p>不仅是功能的开发者，更是支撑所有AI应用与数据服务的“基座”的建造者。从服务器的稳定运行，到安全可靠的数据接口，再到清晰易用的管理界面，确保算法科学家和数据工程师能够在一个坚实、高效的平台上进行创新。</p>
-							</div>
-							<div class="media-right">
-								<i class="fa fa-cogs"></i>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-body text-right">
-								<h4 class="media-heading">数据平台工程师</h4>
-								<p>是公司智能产品的“地基”建造者。数据平台是承载大模型训练、AI决策与各类应用的心后台。您需要深刻理解客户侧复杂多样，设计出稳健的数据桥梁与通道，确保数据能如血液般安全、高效地流动与融合，激活潜在价值。</p>
-							</div>
-							<div class="media-right">
-								<i class="fa fa-database"></i>
-							</div>
-						</div>
-					</div>
-					<div class="space visible-xs"></div>
-					<div class="col-sm-6">
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-cloud"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">大模型算法工程师</h4>
-								<p>是连接前沿AI研究与企业级可靠应用的核心桥梁。不仅仅是调用模型API，而是深入探究其内在机理。将基于我们的系统架构，亲手构建、优化并交付可靠、高效的企业级大模型智能系统。</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-list"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">AI产品经理</h4>
-								<p>是公司AI技术价值与客户业务成功之间的“翻译官”与“总设计师”。您需要深入制造业、供应链等复杂业务场景，从纷繁的需求中洞察核心痛点，并定义出能够为客户创造真实价值的AI产品解决方案。</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-car"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">商务拓展</h4>
-								<p>是公司前沿AI技术与企业现实需求之间的“翻译官”与“连接器”。主要战场是与国内及香港的企业对话，深入其核心痛点，致力于成为客户信赖的顾问，共同绘制企业数智化转型的蓝图。</p>
-							</div>
-						</div>
-						<div class="media">
-							<div class="media-left">
-								<i class="fa fa-users"></i>
-							</div>
-							<div class="media-body">
-								<h4 class="media-heading">行政运营专员</h4>
-								<p>是公司高效运转的“润滑剂”和团队温暖的“守护者”。在经验丰富的导师带领下，快速成长为公司后勤保障支柱。不拘泥于单调重复的任务，节奏快、职责边界灵活，将有机会接触到公司运营的方方面面，和公司一共成长。</p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-		<!-- section start -->
-		<!-- ================ -->
-		<div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12">
-						<h1 id="about" class="title text-center">为何加入<span>OptiMax AI</span></h1>
-						<div class="row">
-							<div class="col-md-3">
-								<h3 class="text-center">参与从0到1的创造</h3>
-								<p>您将不再是庞大机器中的一颗螺丝钉，而是直接参与核心产品的塑造，见证并推动一个伟大想法从蓝图变为现实。</p>
-							</div>
-							<div class="col-md-3">
-								<h3 class="text-center">与顶尖大脑共事</h3>
-								<p>在与申教授及团队中诸多优秀学者的日常协作中，获得前所未有的技术视野与思维提升。</p>
-							</div>
-							<div class="col-md-3">
-								<h3 class="text-center">解决高价值挑战</h3>
-								<p>您的代码与算法将直接应用于行业龙头企业的真实场景，解决其最核心、最复杂的决策难题，创造巨大商业价值。</p>
-							</div>
-							<div class="col-md-3">
-								<h3 class="text-center">广阔的职业前景</h3>
-								<p>作为早期核心成员，您将获得快速的职业成长路径、极具竞争力的薪酬 package（薪资+期权）以及承担关键职责的机会。</p>
-							</div>
-						</div>
-						<div class="space">
-							<p>更多岗位描述与需求详见<a target="_blank" href="https://docs.qq.com/doc/p/4edd19e2e5a5571ec6618d4416ca6252ec4aa019">这里</a></p>
-							<p>如果您已经准备好迎接挑战，请将您的个人简历发送至 hr@optimax.hk。</p>
-							<p>为帮助我们快速处理，请务必使用邮件主题格式：“【应聘】-姓名-意向岗位-(全职/实习)”。我们期待您的加入，共同定义企业的未来！</p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-		<!-- section end -->
-
-
-		
-
-		
-
-		<!-- footer start -->
-		<!-- ================ -->
-		<footer id="footer">
-
-			<!-- .footer start -->
-			<!-- ================ -->
-			<div class="section translucent-bg bg-image-2">
-				<div class="container">
-					<h1 class="title text-center" id="contact">联系我们</h1>
-					<!-- <p class="large">您的鼓励和批评将是推动我们不断向前的最大动力</p> -->
-					<div class="space"></div>
-					<div class="row">
-							<div class="footer-content" style="margin-left:15px">
-								<ul class="list-icons">
-									<li><i class="fa fa-map-marker pr-10"></i>地址：数码港2座，中国香港</li>
-									<li><i class="fa fa-user pr-10"></i>应聘：hr@optimax.hk</li>
-									<li><i class="fa fa-envelope-o pr-10"></i>邮箱：admin@optimax.hk</li>
-								</ul>
-							</div>					
-					</div>
-				</div>
-			</div>
-			<!-- .footer end -->
-
-			<!-- .subfooter start -->
-			<!-- ================ -->
-			<div class="subfooter">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<p class="text-center">Copyright © 2025  OptiMax AI Limited. Webpage template: Worthy, Designed by HtmlCoder.</p>
-						</div>
-					</div>
-				</div>
-			</div>
-			<!-- .subfooter end -->
-
-		</footer>
-		<!-- footer end -->
-
-		<!-- JavaScript files placed at the end of the document so the pages load faster
-		================================================== -->
-		<!-- Jquery and Bootstap core js files -->
-		<script type="text/javascript" src="plugins/jquery.min.js"></script>
-		<script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
-
-		<!-- Modernizr javascript -->
-		<script type="text/javascript" src="plugins/modernizr.js"></script>
-
-		<!-- Isotope javascript -->
-		<script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
-		
-		<!-- Backstretch javascript -->
-		<script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
-
-		<!-- Appear javascript -->
-		<script type="text/javascript" src="plugins/jquery.appear.js"></script>
-
-		<!-- Initialization of Plugins -->
-		<script type="text/javascript" src="js/template.js"></script>
-
-		<!-- Custom Scripts -->
-		<script type="text/javascript" src="js/custom.js"></script>
-
-	</body>
+    <!-- JavaScript files -->
+    <script type="text/javascript" src="plugins/jquery.min.js"></script>
+    <script type="text/javascript" src="bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="plugins/modernizr.js"></script>
+    <script type="text/javascript" src="plugins/isotope/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
+    <script type="text/javascript" src="plugins/jquery.appear.js"></script>
+    <script type="text/javascript" src="js/template.js"></script>
+    <script type="text/javascript" src="js/custom.js"></script>
+</body>
 </html>
