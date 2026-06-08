@@ -44,7 +44,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Custom css -->
-    <link href="css/custom.css" rel="stylesheet">
+    <link href="css/custom.css?v=editorial-panels" rel="stylesheet">
     
     <!-- 内联样式优化 -->
     <style>
@@ -71,120 +71,253 @@
     </style>
 </head>
 
-<body class="no-trans">
+<body class="no-trans didi-inspired">
     <!-- scrollToTop -->
     <div class="scrollToTop"><i class="icon-up-open-big"></i></div>
 
-    <!-- header start -->
-    <header class="header fixed clearfix navbar navbar-fixed-top">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="header-left clearfix">
-                        <!-- logo -->
-                        <div class="logo smooth-scroll">
-                            <a href="#banner"><img id="logo" src="images/logo.png" alt="OptiMax AI 首页"></a>
+    <!-- banner start -->
+    <div id="banner" class="banner platform-hero">
+        <header class="header clearfix navbar platform-header hero-glass-nav">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="header-left clearfix">
+                            <!-- logo -->
+                            <div class="logo smooth-scroll">
+                                <a href="#banner"><img id="logo" src="images/logo.png" alt="OptiMax AI 首页"></a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-md-8">
-                    <div class="header-right clearfix">
-                        <div class="main-navigation animated">
-                            <nav class="navbar navbar-default" role="navigation">
-                                <div class="container-fluid">
-                                    <div class="navbar-header">
-                                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
-                                            <span class="sr-only">切换导航</span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                            <span class="icon-bar"></span>
-                                        </button>
+                    <div class="col-md-8">
+                        <div class="header-right clearfix">
+                            <div class="main-navigation animated">
+                                <nav class="navbar navbar-default" role="navigation">
+                                    <div class="container-fluid">
+                                        <div class="navbar-header">
+                                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse-1">
+                                                <span class="sr-only">切换导航</span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                                <span class="icon-bar"></span>
+                                            </button>
+                                        </div>
+                                        <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
+                                            <ul class="nav navbar-nav navbar-right">
+                                                <li class="active"><a href="#banner">主页</a></li>
+                                                <li><a href="#trusted-ai">AI技术</a></li>
+                                                <li><a href="#roadmap">产品规划</a></li>
+                                                <li><a href="#scenarios">应用场景</a></li>
+                                                <li><a href="#portfolio">创始团队</a></li>
+                                                <li><a href="#services">诚聘英才</a></li>
+                                                <li><a href="#join">联系我们</a></li>
+                                                <li><a href="index_en.html" class="lang-switch">English</a></li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                    <div class="collapse navbar-collapse scrollspy smooth-scroll" id="navbar-collapse-1">
-                                        <ul class="nav navbar-nav navbar-right">
-                                            <li class="active"><a href="#banner">主页</a></li>
-                                            <li><a href="#about">公司简介</a></li>
-                                            <li><a href="#portfolio">创始团队</a></li>
-                                            <li><a href="#services">诚聘英才</a></li>
-                                            <li><a href="#contact">联系我们</a></li>
-											<li><a href="index_en.html" class="lang-switch">English</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </nav>
+                                </nav>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </header>
-    <!-- header end -->
-
-    <!-- banner start -->
-    <div id="banner" class="banner">
+        </header>
         <div class="banner-image"></div>
         <div class="banner-caption">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-8 col-md-offset-2 object-non-visible" data-animation-effect="fadeIn">
-                        <h1 class="text-center">OptiMax 企业优智大模型</h1>
-                        <p class="lead text-center"><strong>AI赋能、数据驱动，助力企业数智转型</strong></p>
+                    <div class="col-md-8 object-non-visible hero-copy" data-animation-effect="fadeIn">
+                        <p class="section-kicker">OptiMax AI Limited</p>
+                        <h1>OptiMax 企业优智大模型</h1>
+                        <p class="lead"><strong>AI赋能、数据驱动，助力企业数智转型</strong></p>
                         <hr class="divider">
-                        <h3 class="text-center">做安全、实用、智能的企业私有供应链AI决策大脑</h3>
+                        <h3>做安全、实用、智能的企业私有供应链AI决策大脑</h3>
+                        <div class="hero-actions smooth-scroll">
+                            <a class="btn btn-primary btn-xl" href="#company-profile" data-profile-drawer-open aria-controls="company-profile">公司简介</a>
+                            <a class="btn btn-default btn-xl" href="#join">联系我们</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <a class="hero-scroll-cue smooth-scroll" href="#trusted-ai" aria-label="向下浏览AI技术">
+                <span aria-hidden="true"></span>
+            </a>
         </div>
     </div>
     <!-- banner end -->
 
-    <!-- 公司简介 section -->
-    <div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 id="about" class="title text-center">公司<span>简介</span></h1>
-                    <p class="lead text-center">做安全、可用、靠谱的企业私有供应链AI决策大脑</p>
-                    <div class="space"></div>
-                    <div class="row">
-                        <div class="col-md-6">
-                            <img class="sec-img img-responsive" src="images/OptiMax-2line-tight.jpg" alt="OptiMax AI 公司展示图">
-                            <div class="space"></div>
-                        </div>
-                        <div class="col-md-6">
-                            <p>OptiMax AI Limited 是一家植根于香港的尖端人工智能企业，致力于研发安全、可控、高效的企业级私有化供应链大模型，立志成为驱动企业智慧运营的"AI决策大脑"。公司于2025年9月在香港创立，是香港创新科技署RAISe+项目重点支持的创业团队。我们以AI赋能和数据驱动为核心，助力全球企业实现深刻的数智化转型与决策升级。</p>
-                            <p>公司由香港大学副校长、国际运筹学与供应链管理权威学者申作军教授领衔创立。我们汇聚了一支由来自全球顶尖高校的杰出青年科学家与工程师组成的核心团队，深度融合AI、运筹优化与供应链管理的前沿研究。依托香港大学一流的科研创新平台，OptiMax AI将前沿学术成果转化为解决企业实际挑战的创新方案。</p>
-                            <p>目前，OptiMax AI已与TCL、中国移动等多家知名企业达成合作意向，打造下一代企业AI引擎。公司已完成天使轮融资，发展势头强劲，目标成为AI决策领域的全球创新力量。</p>
-                            <p><strong>OptiMax 企业优智大模型</strong> 正在紧锣密鼓开发中，预计2026年9月面向市场。</p>
-                        </div>
+    <div id="company-profile" class="profile-drawer" aria-hidden="true">
+        <button class="profile-drawer-backdrop" type="button" data-profile-drawer-close aria-label="关闭公司简介"></button>
+        <aside class="profile-drawer-panel" role="dialog" aria-modal="true" aria-labelledby="company-profile-title">
+            <button class="profile-drawer-close" type="button" data-profile-drawer-close aria-label="关闭公司简介">
+                <i class="fa fa-times" aria-hidden="true"></i>
+            </button>
+            <div class="profile-drawer-scroll">
+                <p class="section-kicker">ABOUT OPTIMAX AI</p>
+                <h2 id="company-profile-title">值得信赖的企业AI决策技术</h2>
+                <p class="profile-drawer-lead">以港大科研团队孵化的 AI + OR 技术为核心，OptiMax AI 正在构建安全、可控、高效的企业级私有供应链 AI 决策大脑，让复杂经营决策更智能、更高效、更简单。</p>
+                <div class="profile-proof-strip">
+                    <div>
+                        <strong>AI + OR</strong>
+                        <span>融合大模型感知、运筹优化与业务约束建模</span>
+                    </div>
+                    <div>
+                        <strong>RAISe+</strong>
+                        <span>香港创新科技署重点支持创业团队</span>
+                    </div>
+                    <div>
+                        <strong>2026.09</strong>
+                        <span>企业优智大模型预计面向市场</span>
+                    </div>
+                </div>
+                <div class="profile-copy">
+                    <p>OptiMax AI Limited 是一家植根于香港的尖端人工智能企业，致力于研发安全、可控、高效的企业级私有化供应链大模型，立志成为驱动企业智慧运营的“AI决策大脑”。公司于2025年9月在香港创立，是香港创新科技署 RAISe+ 项目重点支持的创业团队。</p>
+                    <p>公司由香港大学副校长、国际运筹学与供应链管理权威学者申作军教授领衔创立。团队深度融合 AI、运筹优化与供应链管理前沿研究，依托香港大学科研创新平台，将学术成果转化为企业真实场景中的预测、规划、排产、风控与智能问答能力。</p>
+                    <p>目前，OptiMax AI 已围绕 TCL、中国移动等企业场景推进合作，覆盖供应链风险管理、采购智能化、生产排程、主计划优化、库存与物流优化等方向。公司已完成天使轮融资，目标成为 AI 决策领域的全球创新力量。</p>
+                    <p><strong>OptiMax 企业优智大模型</strong> 正在紧锣密鼓开发中，预计2026年9月面向市场。</p>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- 值得信赖的AI技术 -->
+    <div id="trusted-ai" class="section section-panel trust-section">
+        <a class="section-nav section-nav-up smooth-scroll" href="#banner" aria-label="返回主页">
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="tech-watermark" aria-hidden="true">
+            <span>AI</span>
+            <span>Technology</span>
+        </div>
+        <div class="container section-panel-inner tech-editorial">
+            <div class="trust-heading">
+                <h1 class="section-title">值得信赖的AI技术</h1>
+                <p class="section-lead">专为运营团队打造，透明、可解释的 AI 决策能力，让每个复杂供应链决策都更有把握。</p>
+            </div>
+            <div class="tech-orbit" aria-hidden="true"></div>
+            <div class="trust-card-grid">
+                <div class="trust-card">
+                    <i class="fa fa-line-chart" aria-hidden="true"></i>
+                    <h3>AI智能诊断</h3>
+                    <p>面向 RiskOps 供应链风险管理，识别供应商、库存、物流与合同执行中的潜在风险，帮助企业提前发现经营断点。</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fa fa-bar-chart" aria-hidden="true"></i>
+                    <h3>AI智能推荐</h3>
+                    <p>融合需求预测、智能补货、库存优化、主计划与排产调度，为复杂供应链场景提供可解释、可落地的优化建议。</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fa fa-sitemap" aria-hidden="true"></i>
+                    <h3>AI智能问答</h3>
+                    <p>基于 OptiONE 企业级 Agent 协同管控底座，让业务人员围绕生产、采购、库存和风险问题获得上下文感知的即时洞察。</p>
+                </div>
+            </div>
+        </div>
+        <a class="section-nav section-nav-down smooth-scroll" href="#roadmap" aria-label="前往产品规划">
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <!-- 产品规划 -->
+    <div id="roadmap" class="section section-panel roadmap-section">
+        <a class="section-nav section-nav-up smooth-scroll" href="#trusted-ai" aria-label="返回AI技术">
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="container section-panel-inner">
+            <div class="roadmap-layout">
+                <div class="roadmap-copy">
+                    <p class="section-kicker">PRODUCT ROADMAP</p>
+                    <h1 class="section-title">产品规划</h1>
+                    <p class="section-lead">围绕风险、工厂、供应链与现场交付，OptiMax AI 将产品能力沉淀为可复用的企业决策智能平台。</p>
+                </div>
+                <div class="roadmap-stack">
+                    <div class="roadmap-item">
+                        <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+                        <h3>RiskOps 供应链风险管理</h3>
+                        <p>覆盖供应商合同、采购履约、库存储备与物流调度，形成风险识别、预警和处置建议闭环。</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <i class="fa fa-building" aria-hidden="true"></i>
+                        <h3>FactoryOps 工厂智能排查</h3>
+                        <p>服务生产排程、工艺步骤、检测返工和异常定位，让工厂流程从经验判断走向数据驱动。</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <i class="fa fa-sitemap" aria-hidden="true"></i>
+                        <h3>OptiONE Agent 协同管控底座</h3>
+                        <p>构建企业级 Agent 协同底座，将问答、诊断、推荐与优化能力接入客户真实业务流。</p>
+                    </div>
+                    <div class="roadmap-item">
+                        <i class="fa fa-rocket" aria-hidden="true"></i>
+                        <h3>FDE 快速交付与业务 POC</h3>
+                        <p>让现场交付工程师经过短周期培训即可配置方案，缩短从需求识别到产品落地的距离。</p>
                     </div>
                 </div>
             </div>
         </div>
+        <a class="section-nav section-nav-down smooth-scroll" href="#scenarios" aria-label="前往应用场景">
+            <span aria-hidden="true"></span>
+        </a>
     </div>
 
-    <!-- 创始团队标题区 -->
-    <div class="default-bg space">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2">
-                    <h1 class="text-center" id="portfolio">创始团队</h1>
-                    <p class="text-center lead">顶尖学者与行业精英的强强联合</p>
+    <!-- 典型应用场景 -->
+    <div id="scenarios" class="section section-panel scenario-section">
+        <a class="section-nav section-nav-up smooth-scroll" href="#roadmap" aria-label="返回产品规划">
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="container section-panel-inner">
+            <div class="scenario-layout">
+                <div class="scenario-copy">
+                    <p class="section-kicker">ENTERPRISE USE CASES</p>
+                    <h1 class="section-title">典型应用场景</h1>
+                    <p class="section-lead">从供应链风险到生产排程，从采购智能化到库存与物流优化，把 AI + OR 能力嵌入企业经营的关键节点。</p>
+                </div>
+                <div class="scenario-map">
+                    <div class="scenario-feature">
+                        <p>CORE SCENARIOS</p>
+                        <h3>供应链控制塔</h3>
+                        <span>面向跨区域、跨工厂、跨供应商的经营协同，提供风险预警、计划优化与即时问答。</span>
+                    </div>
+                    <div class="scenario-cluster">
+                        <span><i class="fa fa-bell-o" aria-hidden="true"></i>供应链预警系统</span>
+                        <span><i class="fa fa-shopping-cart" aria-hidden="true"></i>采购智能化管理</span>
+                        <span><i class="fa fa-tasks" aria-hidden="true"></i>生产排程优化</span>
+                        <span><i class="fa fa-calendar-o" aria-hidden="true"></i>主计划优化</span>
+                        <span><i class="fa fa-line-chart" aria-hidden="true"></i>需求预测</span>
+                        <span><i class="fa fa-cogs" aria-hidden="true"></i>排产调度</span>
+                        <span><i class="fa fa-database" aria-hidden="true"></i>库存优化</span>
+                        <span><i class="fa fa-globe" aria-hidden="true"></i>跨境物流优化</span>
+                        <span><i class="fa fa-file-text-o" aria-hidden="true"></i>供应商合同管理</span>
+                        <span><i class="fa fa-map-marker" aria-hidden="true"></i>补货与选址</span>
+                    </div>
                 </div>
             </div>
         </div>
+        <a class="section-nav section-nav-down smooth-scroll" href="#portfolio" aria-label="前往创始团队">
+            <span aria-hidden="true"></span>
+        </a>
     </div>
 
-    <!-- 创始团队成员展示 -->
-    <div class="section">
-        <div class="container">
+    <!-- 创始团队标题区 -->
+    <div id="portfolio" class="section section-panel default-bg founder-band team-section">
+        <a class="section-nav section-nav-up smooth-scroll" href="#scenarios" aria-label="返回应用场景">
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="team-watermark" aria-hidden="true">
+            <span>Founding</span>
+            <span>Team</span>
+        </div>
+        <div class="container section-panel-inner team-editorial">
+            <div class="team-heading">
+                <h1 class="section-title">创始团队</h1>
+                <p class="lead section-lead">顶尖学者与行业精英的强强联合</p>
+            </div>
+            <div class="team-orbit" aria-hidden="true"></div>
             <div class="separator"></div>
             <div class="row object-non-visible" data-animation-effect="fadeIn">
                 <div class="col-md-12">
                     <div class="isotope-container row grid-space-20">
                         <!-- 申作军教授 -->
                         <div class="col-sm-6 col-md-3 isotope-item offline">
-                            <div class="image-box">
+                            <div class="image-box founder-card">
                                 <div class="overlay-container">
                                     <img src="images/maxshen.png" alt="申作军教授 香港大学副校长" class="img-responsive">
                                     <a class="overlay" data-toggle="modal" data-target="#project-1">
@@ -225,7 +358,7 @@
 
                         <!-- 曲源博士 -->
                         <div class="col-sm-6 col-md-3 isotope-item online">
-                            <div class="image-box">
+                            <div class="image-box founder-card">
                                 <div class="overlay-container">
                                     <img src="images/yuanqu.jpg" alt="曲源博士 香港大学博士后" class="img-responsive">
                                     <a class="overlay" data-toggle="modal" data-target="#project-2">
@@ -265,7 +398,7 @@
 
                         <!-- 张普竣博士 -->
                         <div class="col-sm-6 col-md-3 isotope-item online">
-                            <div class="image-box">
+                            <div class="image-box founder-card">
                                 <div class="overlay-container">
                                     <img src="images/pjzhang.jpg" alt="张普竣博士" class="img-responsive">
                                     <a class="overlay" data-toggle="modal" data-target="#project-3">
@@ -305,7 +438,7 @@
 
                         <!-- 刘安邦博士 -->
                         <div class="col-sm-6 col-md-3 isotope-item editor">
-                            <div class="image-box">
+                            <div class="image-box founder-card">
                                 <div class="overlay-container">
                                     <img src="images/abliu.jpg" alt="刘安邦博士" class="img-responsive">
                                     <a class="overlay" data-toggle="modal" data-target="#project-4">
@@ -346,16 +479,22 @@
                 </div>
             </div>
         </div>
+        <a class="section-nav section-nav-down smooth-scroll" href="#services" aria-label="前往诚聘英才">
+            <span aria-hidden="true"></span>
+        </a>
     </div>
 
     <!-- 诚聘英才 section -->
-    <div class="section translucent-bg bg-image-1 blue">
-        <div class="container object-non-visible" data-animation-effect="fadeIn">
-            <h1 id="services" class="text-center title">诚聘英才</h1>
+    <div id="services" class="section translucent-bg bg-image-1 blue career-panel section-panel">
+        <a class="section-nav section-nav-up smooth-scroll" href="#portfolio" aria-label="返回创始团队">
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="container section-panel-inner object-non-visible" data-animation-effect="fadeIn">
+            <h1 class="text-center title section-title">诚聘英才</h1>
             <div class="space text-center">
-                <p class="lead">我们正在寻找不甘平庸、渴望用技术创造真实价值的同行者。</p>
+                <p class="lead section-lead">我们正在寻找不甘平庸、渴望用技术创造真实价值的同行者。</p>
             </div>
-            <div class="row">
+            <div class="row career-grid">
                 <div class="col-sm-6">
                     <div class="media">
                         <div class="media-body text-right">
@@ -419,36 +558,70 @@
                 </div>
             </div>
         </div>
+        <a class="section-nav section-nav-down smooth-scroll" href="#join" aria-label="前往为何加入OptiMax AI">
+            <span aria-hidden="true"></span>
+        </a>
     </div>
 
     <!-- 为何加入OptiMax AI -->
-    <div class="section clearfix object-non-visible" data-animation-effect="fadeIn">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <h1 class="title text-center">为何加入<span>OptiMax AI</span></h1>
-                    <div class="row">
-                        <div class="col-md-3">
-                            <h3 class="text-center">参与从0到1的创造</h3>
-                            <p>您将不再是庞大机器中的螺丝钉，而是直接参与核心产品的塑造，见证并推动伟大想法从蓝图变为现实。</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h3 class="text-center">与顶尖大脑共事</h3>
-                            <p>与申教授及团队中诸多优秀学者日常协作，获得前所未有的技术视野与思维提升。</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h3 class="text-center">解决高价值挑战</h3>
-                            <p>您的代码与算法将直接应用于行业龙头企业的真实场景，解决最核心、最复杂的决策难题。</p>
-                        </div>
-                        <div class="col-md-3">
-                            <h3 class="text-center">广阔的职业前景</h3>
-                            <p>作为早期核心成员，获得快速的职业成长路径、极具竞争力的薪酬package以及承担关键职责的机会。</p>
-                        </div>
+    <div id="join" class="section clearfix object-non-visible join-section section-panel" data-animation-effect="fadeIn">
+        <a class="section-nav section-nav-up smooth-scroll" href="#services" aria-label="返回诚聘英才">
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="container section-panel-inner">
+            <div class="join-footer-panel">
+                <div class="join-footer-intro">
+                    <div>
+                        <p class="section-kicker">JOIN OPTIMAX AI</p>
+                        <h1 class="title section-title">为何加入<span>OptiMax AI</span></h1>
                     </div>
-                    <div class="space">
+                    <div class="join-application">
                         <p>更多岗位描述与需求详见 <a target="_blank" href="https://docs.qq.com/doc/p/4edd19e2e5a5571ec6618d4416ca6252ec4aa019" rel="noopener noreferrer">岗位详情文档</a>。</p>
                         <p>如果您已经准备好迎接挑战，请将您的个人简历发送至 <strong>hr@optimax.hk</strong>。</p>
-                        <p>为帮助我们快速处理，请务必使用邮件主题格式：<strong>【应聘】-姓名-意向岗位-(全职/实习)</strong>。我们期待您的加入，共同定义企业的未来！</p>
+                        <p>为帮助我们快速处理，请务必使用邮件主题格式：<strong>【应聘】-姓名-意向岗位-(全职/实习)</strong>。</p>
+                    </div>
+                </div>
+                <div class="join-reasons">
+                    <div class="join-reason">
+                        <h3>参与从0到1的创造</h3>
+                        <p>您将不再是庞大机器中的螺丝钉，而是直接参与核心产品的塑造，见证并推动伟大想法从蓝图变为现实。</p>
+                    </div>
+                    <div class="join-reason">
+                        <h3>与顶尖大脑共事</h3>
+                        <p>与申教授及团队中诸多优秀学者日常协作，获得前所未有的技术视野与思维提升。</p>
+                    </div>
+                    <div class="join-reason">
+                        <h3>解决高价值挑战</h3>
+                        <p>您的代码与算法将直接应用于行业龙头企业的真实场景，解决最核心、最复杂的决策难题。</p>
+                    </div>
+                    <div class="join-reason">
+                        <h3>广阔的职业前景</h3>
+                        <p>作为早期核心成员，获得快速的职业成长路径、极具竞争力的薪酬package以及承担关键职责的机会。</p>
+                    </div>
+                </div>
+                <div class="join-footer-grid">
+                    <div class="join-footer-column">
+                        <h3>JOIN US</h3>
+                        <a target="_blank" href="https://docs.qq.com/doc/p/4edd19e2e5a5571ec6618d4416ca6252ec4aa019" rel="noopener noreferrer">岗位详情文档</a>
+                        <a href="mailto:hr@optimax.hk">hr@optimax.hk</a>
+                        <p>我们期待您的加入，共同定义企业的未来。</p>
+                    </div>
+                    <div id="contact" class="join-footer-column join-contact">
+                        <h3>CONTACT</h3>
+                        <ul class="join-contact-list list-icons">
+                            <li><i class="fa fa-map-marker pr-10"></i> 数码港3座F区5层创业中心7室，中国香港</li>
+                            <li><i class="fa fa-user pr-10"></i> 应聘：<a href="mailto:hr@optimax.hk">hr@optimax.hk</a></li>
+                            <li><i class="fa fa-envelope-o pr-10"></i> 邮箱：<a href="mailto:admin@optimax.hk">admin@optimax.hk</a></li>
+                        </ul>
+                    </div>
+                    <div class="join-footer-column">
+                        <h3>OPTIMAX AI</h3>
+                        <p>企业级私有供应链AI决策大脑，面向制造业与供应链等复杂业务场景。</p>
+                        <div class="join-footer-links smooth-scroll">
+                            <a href="#company-profile" data-profile-drawer-open aria-controls="company-profile">公司简介</a>
+                            <a href="#portfolio">创始团队</a>
+                            <a href="#services">诚聘英才</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -457,21 +630,6 @@
 
     <!-- footer start -->
     <footer id="footer">
-        <div class="section translucent-bg bg-image-2">
-            <div class="container">
-                <h1 class="title text-center" id="contact">联系我们</h1>
-                <div class="space"></div>
-                <div class="row">
-                    <div class="footer-content col-md-6 col-md-offset-3">
-                        <ul class="list-icons text-center">
-                            <li><i class="fa fa-map-marker pr-10"></i> 地址：数码港3座F区5层创业中心7室，中国香港</li>
-                            <li><i class="fa fa-user pr-10"></i> 应聘：<a href="mailto:hr@optimax.hk">hr@optimax.hk</a></li>
-                            <li><i class="fa fa-envelope-o pr-10"></i> 邮箱：<a href="mailto:admin@optimax.hk">admin@optimax.hk</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
         <div class="subfooter">
             <div class="container">
                 <div class="row">
@@ -492,6 +650,6 @@
     <script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
     <script type="text/javascript" src="plugins/jquery.appear.js"></script>
     <script type="text/javascript" src="js/template.js"></script>
-    <script type="text/javascript" src="js/custom.js"></script>
+    <script type="text/javascript" src="js/custom.js?v=editorial-panels"></script>
 </body>
 </html>
