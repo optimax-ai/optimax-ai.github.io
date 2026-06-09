@@ -24,6 +24,9 @@ const requiredText = [
   "FDE 快速交付与业务 POC",
   "典型应用场景",
   "OptiFlow 决策中枢",
+  "Risk Sensing",
+  "Plan Optimization",
+  "Agent Copilot",
   "fa-exclamation-triangle",
   "fa-building",
   "fa-rocket",
@@ -100,6 +103,7 @@ const requiredCssHooks = [
   ".roadmap-item",
   ".scenario-section",
   ".scenario-feature",
+  ".scenario-feature-tags",
   ".join-footer-panel",
   ".join-footer-grid",
   ".join-contact",
@@ -108,8 +112,8 @@ const requiredCssHooks = [
 ];
 
 const requiredRuntimeHooks = [
-  "css/custom.css?v=hero-carousel-v4",
-  "js/custom.js?v=hero-carousel-v4",
+  "css/custom.css?v=scenario-core-panel-v2",
+  "js/custom.js?v=scenario-core-panel-v2",
   "optimaxSectionScroll",
   "initHeroCarousel",
   "scrollRestoration",
