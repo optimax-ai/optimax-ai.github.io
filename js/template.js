@@ -10,7 +10,9 @@
 (function($){
 	$(document).ready(function(){
 	
-		$(".banner-image").backstretch('images/banner.jpg');
+		if ($(".banner-image").length > 0 && $(".banner-image").is(":visible")) {
+			$(".banner-image").backstretch('images/banner.jpg');
+		}
 		
 		// Fixed header
 		//-----------------------------------------------
@@ -52,9 +54,13 @@
 					var target = $(this.hash);
 					target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
 					if (target.length) {
-						$('html,body').animate({
-							scrollTop: target.offset().top-151
-						}, 1000);
+						if (window.optimaxSectionScroll) {
+							window.optimaxSectionScroll(this.hash, true);
+						} else {
+							$('html,body').animate({
+								scrollTop: target.offset().top
+							}, 1000);
+						}
 						return false;
 					}
 				}

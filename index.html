@@ -44,7 +44,7 @@
     <link href="css/style.css" rel="stylesheet">
 
     <!-- Custom css -->
-    <link href="css/custom.css?v=editorial-panels" rel="stylesheet">
+    <link href="css/custom.css?v=hero-carousel-v4" rel="stylesheet">
     
     <!-- 内联样式优化 -->
     <style>
@@ -121,7 +121,23 @@
                 </div>
             </div>
         </header>
-        <div class="banner-image"></div>
+        <div class="hero-carousel" data-hero-carousel>
+            <div class="hero-carousel-slide is-active" style="background-image: url('images/hero-advanced-manufacturing.jpg');" aria-hidden="false"></div>
+            <div class="hero-carousel-slide" style="background-image: url('images/hero-cargo-vessel.jpg');" aria-hidden="true"></div>
+            <div class="hero-carousel-slide" style="background-image: url('images/hero-factory-corridor.jpg');" aria-hidden="true"></div>
+        </div>
+        <button class="hero-carousel-arrow hero-carousel-arrow-prev" type="button" data-hero-carousel-prev aria-label="上一张封面">
+            <i class="fa fa-angle-left" aria-hidden="true"></i>
+        </button>
+        <button class="hero-carousel-arrow hero-carousel-arrow-next" type="button" data-hero-carousel-next aria-label="下一张封面">
+            <i class="fa fa-angle-right" aria-hidden="true"></i>
+        </button>
+        <div class="hero-carousel-dots" role="tablist" aria-label="封面图片切换">
+            <button class="is-active" type="button" data-hero-carousel-dot="0" aria-label="显示复杂制造封面" aria-selected="true"></button>
+            <button type="button" data-hero-carousel-dot="1" aria-label="显示货轮航运封面" aria-selected="false"></button>
+            <button type="button" data-hero-carousel-dot="2" aria-label="显示工厂供应链封面" aria-selected="false"></button>
+        </div>
+        <div class="banner-image" aria-hidden="true"></div>
         <div class="banner-caption">
             <div class="container">
                 <div class="row">
@@ -197,18 +213,33 @@
             <div class="trust-card-grid">
                 <div class="trust-card">
                     <i class="fa fa-line-chart" aria-hidden="true"></i>
-                    <h3>AI智能诊断</h3>
+                    <h3>风险智能诊断</h3>
                     <p>面向 RiskOps 供应链风险管理，识别供应商、库存、物流与合同执行中的潜在风险，帮助企业提前发现经营断点。</p>
                 </div>
                 <div class="trust-card">
                     <i class="fa fa-bar-chart" aria-hidden="true"></i>
-                    <h3>AI智能推荐</h3>
+                    <h3>预测与补货推荐</h3>
                     <p>融合需求预测、智能补货、库存优化、主计划与排产调度，为复杂供应链场景提供可解释、可落地的优化建议。</p>
                 </div>
                 <div class="trust-card">
                     <i class="fa fa-sitemap" aria-hidden="true"></i>
-                    <h3>AI智能问答</h3>
+                    <h3>Agent 智能问答</h3>
                     <p>基于 OptiONE 企业级 Agent 协同管控底座，让业务人员围绕生产、采购、库存和风险问题获得上下文感知的即时洞察。</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fa fa-cogs" aria-hidden="true"></i>
+                    <h3>运筹优化求解</h3>
+                    <p>把业务规则、资源约束与优化目标转化为可计算模型，支撑排产、调度、补货、路径与库存等复杂决策。</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fa fa-shield" aria-hidden="true"></i>
+                    <h3>私有化安全部署</h3>
+                    <p>面向企业数据安全与生产连续性需求，支持私有化、可控权限与业务数据隔离，降低核心数据外传风险。</p>
+                </div>
+                <div class="trust-card">
+                    <i class="fa fa-wrench" aria-hidden="true"></i>
+                    <h3>FDE 快速配置</h3>
+                    <p>沉淀业务 POC 与现场交付方法，让交付工程师快速配置场景方案，把 AI 能力稳定带入客户业务流。</p>
                 </div>
             </div>
         </div>
@@ -273,8 +304,8 @@
                 <div class="scenario-map">
                     <div class="scenario-feature">
                         <p>CORE SCENARIOS</p>
-                        <h3>供应链控制塔</h3>
-                        <span>面向跨区域、跨工厂、跨供应商的经营协同，提供风险预警、计划优化与即时问答。</span>
+                        <h3>OptiFlow 决策中枢</h3>
+                        <span>面向跨区域、跨工厂、跨供应商的经营协同，提供风险感知、计划优化与即时问答。</span>
                     </div>
                     <div class="scenario-cluster">
                         <span><i class="fa fa-bell-o" aria-hidden="true"></i>供应链预警系统</span>
@@ -650,6 +681,6 @@
     <script type="text/javascript" src="plugins/jquery.backstretch.min.js"></script>
     <script type="text/javascript" src="plugins/jquery.appear.js"></script>
     <script type="text/javascript" src="js/template.js"></script>
-    <script type="text/javascript" src="js/custom.js?v=editorial-panels"></script>
+    <script type="text/javascript" src="js/custom.js?v=hero-carousel-v4"></script>
 </body>
 </html>

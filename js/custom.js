@@ -7,6 +7,93 @@
  * File Description: Place here your custom scripts
  */
 (function() {
+    if ("scrollRestoration" in window.history) {
+        window.history.scrollRestoration = "manual";
+    }
+
+    function initHeroCarousel() {
+        var carousel = document.querySelector("[data-hero-carousel]");
+        if (!carousel) {
+            return;
+        }
+
+        var slides = Array.prototype.slice.call(carousel.querySelectorAll(".hero-carousel-slide"));
+        var dots = Array.prototype.slice.call(document.querySelectorAll("[data-hero-carousel-dot]"));
+        var prev = document.querySelector("[data-hero-carousel-prev]");
+        var next = document.querySelector("[data-hero-carousel-next]");
+        var current = 0;
+        var timer = null;
+        var autoPlayDelay = 7000;
+        var reduceMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (slides.length <= 1) {
+            return;
+        }
+
+        function setSlide(index) {
+            current = (index + slides.length) % slides.length;
+
+            slides.forEach(function(slide, slideIndex) {
+                var isActive = slideIndex === current;
+                slide.classList.toggle("is-active", isActive);
+                slide.setAttribute("aria-hidden", isActive ? "false" : "true");
+            });
+
+            dots.forEach(function(dot, dotIndex) {
+                var isActive = dotIndex === current;
+                dot.classList.toggle("is-active", isActive);
+                dot.setAttribute("aria-selected", isActive ? "true" : "false");
+            });
+        }
+
+        function stopAutoPlay() {
+            if (timer) {
+                window.clearInterval(timer);
+                timer = null;
+            }
+        }
+
+        function startAutoPlay() {
+            stopAutoPlay();
+            if (!reduceMotion) {
+                timer = window.setInterval(function() {
+                    setSlide(current + 1);
+                }, autoPlayDelay);
+            }
+        }
+
+        function moveTo(index) {
+            setSlide(index);
+            startAutoPlay();
+        }
+
+        if (prev) {
+            prev.addEventListener("click", function() {
+                moveTo(current - 1);
+            });
+        }
+
+        if (next) {
+            next.addEventListener("click", function() {
+                moveTo(current + 1);
+            });
+        }
+
+        dots.forEach(function(dot) {
+            dot.addEventListener("click", function() {
+                var targetIndex = parseInt(dot.getAttribute("data-hero-carousel-dot"), 10);
+                if (!isNaN(targetIndex)) {
+                    moveTo(targetIndex);
+                }
+            });
+        });
+
+        carousel.addEventListener("mouseenter", stopAutoPlay);
+        carousel.addEventListener("mouseleave", startAutoPlay);
+        setSlide(0);
+        startAutoPlay();
+    }
+
     function setWindowScroll(top, animate) {
         if (typeof window.scrollTo === "function") {
             window.scrollTo({
@@ -49,6 +136,17 @@
         }
     };
 
+    function syncInitialSectionScroll() {
+        var hash = window.location.hash || "#banner";
+        var delays = [0, 80, 260, 720];
+
+        delays.forEach(function(delay) {
+            window.setTimeout(function() {
+                window.optimaxSectionScroll(hash, false);
+            }, delay);
+        });
+    }
+
     function setProfileDrawer(open) {
         var drawer = document.getElementById("company-profile");
         if (!drawer) {
@@ -82,6 +180,11 @@
         }
     });
 
+    document.addEventListener("DOMContentLoaded", function() {
+        initHeroCarousel();
+        syncInitialSectionScroll();
+    });
+
     document.addEventListener("click", function(event) {
         var link = event.target.closest("a[href*='#']");
         if (!link || link.getAttribute("href") === "#") {
@@ -113,9 +216,7 @@
     }, true);
 
     window.addEventListener("load", function() {
-        window.setTimeout(function() {
-            window.optimaxSectionScroll(window.location.hash, false);
-        }, 80);
+        syncInitialSectionScroll();
     });
 
     window.addEventListener("hashchange", function() {
