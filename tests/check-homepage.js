@@ -259,8 +259,8 @@ const requiredZhRuntimeHooks = [
 ];
 
 const requiredEnRuntimeHooks = [
-  "css/custom.css?v=enterprise-world-model-v10",
-  "js/custom.js?v=enterprise-world-model-v10",
+  "css/custom.css?v=enterprise-world-model-v11",
+  "js/custom.js?v=enterprise-world-model-v11",
 ];
 
 const requiredRuntimeHooks = [
@@ -287,7 +287,10 @@ const staleZhText = [
   "运营主管",
   "founder-photo-placeholder",
   "is-photo-pending",
-  "Webpage template: Worthy"
+  "Webpage template: Worthy",
+  "Page 1 /",
+  "Page 2 /",
+  "Page 3 /"
 ];
 
 const staleEnText = [
@@ -302,7 +305,10 @@ const staleEnText = [
   "Operations Manager",
   "founder-photo-placeholder",
   "is-photo-pending",
-  "Webpage template: Worthy"
+  "Webpage template: Worthy",
+  "Page 1 /",
+  "Page 2 /",
+  "Page 3 /"
 ];
 
 requireIncludes(zhHtml, requiredZhText, "Chinese content");
@@ -386,7 +392,6 @@ if (!zhHtml.includes("join-contact-value") || !enHtml.includes("join-contact-val
 
 const noWrapRequirements = [
   ".platform-hero h1",
-  ".scenario-proof-panel h2",
   ".roadmap-lead-line",
   ".join-footer-column .nowrap-line"
 ];
@@ -439,6 +444,18 @@ const requiredEnglishOverflowRules = [
 ];
 
 requireIncludes(css, requiredEnglishOverflowRules, "English scenario overflow rule");
+
+const enTechPipelineBlock = extractCssBlock(css, 'html[lang="en"] .tech-pipeline');
+if (!enTechPipelineBlock.includes("grid-template-columns: repeat(2, minmax(0, 1fr));")) {
+  throw new Error("English technology pipeline should use a 2-column grid so long step labels do not collide.");
+}
+
+const enScenarioHeadingBlock = extractCssBlock(css, 'html[lang="en"] .scenario-proof-panel h2');
+for (const requiredSnippet of ["white-space: normal;", "overflow-wrap: anywhere;", "font-size: clamp(25px, 2.05vw, 32px);"]) {
+  if (!enScenarioHeadingBlock.includes(requiredSnippet)) {
+    throw new Error(`English scenario heading should include ${requiredSnippet}`);
+  }
+}
 
 const enCapsuleNodesBlock = findCssBlockWith(
   css,

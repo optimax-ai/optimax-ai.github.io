@@ -1242,13 +1242,14 @@ html[lang="en"] .tech-pipeline {
     left: 20px;
     right: 20px;
     bottom: 12px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 html[lang="en"] .tech-pipeline span {
     display: flex;
     min-width: 0;
-    min-height: 68px;
-    padding: 9px 12px;
+    min-height: 54px;
+    padding: 8px 12px;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
@@ -1592,9 +1593,12 @@ html[lang="en"] .scenario-proof-panel small {
 }
 
 html[lang="en"] .scenario-proof-panel h2 {
-    max-width: none;
-    font-size: clamp(30px, 2.6vw, 40px);
-    line-height: 1.08;
+    max-width: 13em;
+    font-size: clamp(25px, 2.05vw, 32px);
+    line-height: 1.24;
+    white-space: normal;
+    overflow: visible;
+    overflow-wrap: anywhere;
 }
 
 html[lang="en"] .scenario-proof-panel p {
