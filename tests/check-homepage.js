@@ -63,8 +63,8 @@ const requiredZhText = [
   "知名企业真实经营场景",
   "创始团队",
   "申作军教授",
-  "曾任香港大学副校长（研究）",
-  "中国工程院外籍院士",
+  "中国工程院外籍院士，曾任香港大学副校长（研究）",
+  "现为香港大学工程学院及经济及工商管理学院双聘讲座教授",
   "曲源博士",
   "张普竣博士",
   "刘安邦博士",
@@ -107,8 +107,8 @@ const requiredEnText = [
   "well-known enterprises",
   "Founding Team",
   "Prof. Zuo-Jun Max Shen",
-  "former Vice-President (Research)",
-  "Foreign Member of the Chinese Academy of Engineering",
+  "Foreign Member of the Chinese Academy of Engineering, served as Vice-President (Research) of the University of Hong Kong",
+  "currently a chaired professor jointly appointed by the Faculty of Engineering and the Faculty of Business and Economics at the University of Hong Kong",
   "Dr. Yuan Qu",
   "Dr. Pujun Zhang",
   "Dr. Anbang Liu",
@@ -326,7 +326,8 @@ const staleZhText = [
   "Page 2 /",
   "Page 3 /",
   "公司由香港大学副校长、",
-  "申作军教授是香港大学副校长（研究）"
+  "申作军教授是香港大学副校长（研究）",
+  "是中国工程院外籍院士，工程学院及经济及工商管理学院"
 ];
 
 const staleEnText = [
@@ -346,7 +347,8 @@ const staleEnText = [
   "Page 2 /",
   "Page 3 /",
   "Professor Zuo-Jun Max Shen, Vice-President (Research)",
-  "Professor Shen is the Vice-President (Research)"
+  "Professor Shen is the Vice-President (Research)",
+  "He is a chaired professor jointly appointed by the Faculty of Engineering and the Faculty of Business and Economics"
 ];
 
 requireIncludes(zhHtml, requiredZhText, "Chinese content");
