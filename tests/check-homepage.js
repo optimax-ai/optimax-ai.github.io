@@ -173,6 +173,18 @@ for (const [step, label] of expectedEnTechPipeline) {
   }
 }
 
+const enProductDelivery = enHtml.match(/<div class="product-delivery-bar">([\s\S]*?)<\/div>/);
+if (!enProductDelivery) {
+  throw new Error("English product roadmap delivery bar is missing.");
+}
+
+for (const [step, label] of expectedEnTechPipeline) {
+  const pattern = new RegExp(`<span>\\s*<b>${escapeRegExp(step)}<\\/b>\\s*<em class="product-step-copy">${escapeRegExp(label)}<\\/em>\\s*<\\/span>`);
+  if (!pattern.test(enProductDelivery[1])) {
+    throw new Error(`English product delivery bar should include ${step} ${label} as forced line blocks.`);
+  }
+}
+
 const requiredHtmlHooks = [
   "didi-inspired",
   "platform-hero",
@@ -259,8 +271,8 @@ const requiredZhRuntimeHooks = [
 ];
 
 const requiredEnRuntimeHooks = [
-  "css/custom.css?v=enterprise-world-model-v11",
-  "js/custom.js?v=enterprise-world-model-v11",
+  "css/custom.css?v=enterprise-world-model-v12",
+  "js/custom.js?v=enterprise-world-model-v12",
 ];
 
 const requiredRuntimeHooks = [
@@ -436,6 +448,9 @@ const requiredEnglishOverflowRules = [
   'html[lang="en"] .tech-pipeline',
   'html[lang="en"] .tech-pipeline span',
   'html[lang="en"] .tech-step-copy',
+  'html[lang="en"] .product-delivery-bar',
+  'html[lang="en"] .product-delivery-bar span',
+  'html[lang="en"] .product-step-copy',
   'html[lang="en"] .join-footer-column .nowrap-line',
   'html[lang="en"] .join-contact-copy',
   'html[lang="en"] .scenario-proof-panel',
@@ -454,6 +469,25 @@ const enScenarioHeadingBlock = extractCssBlock(css, 'html[lang="en"] .scenario-p
 for (const requiredSnippet of ["white-space: normal;", "overflow-wrap: anywhere;", "font-size: clamp(25px, 2.05vw, 32px);"]) {
   if (!enScenarioHeadingBlock.includes(requiredSnippet)) {
     throw new Error(`English scenario heading should include ${requiredSnippet}`);
+  }
+}
+
+const enProductDeliveryBlock = extractCssBlock(css, 'html[lang="en"] .product-delivery-bar');
+if (!enProductDeliveryBlock.includes("grid-template-columns: repeat(2, minmax(0, 1fr));")) {
+  throw new Error("English product delivery bar should use a 2-column grid so step labels do not collide.");
+}
+
+const enProductDeliverySpanBlock = extractCssBlock(css, 'html[lang="en"] .product-delivery-bar span');
+for (const requiredSnippet of ["white-space: normal;", "overflow: hidden;", "min-width: 0;"]) {
+  if (!enProductDeliverySpanBlock.includes(requiredSnippet)) {
+    throw new Error(`English product delivery cells should include ${requiredSnippet}`);
+  }
+}
+
+const enProductStepCopyBlock = extractCssBlock(css, 'html[lang="en"] .product-step-copy');
+for (const requiredSnippet of ["display: block;", "white-space: normal;", "overflow-wrap: anywhere;", "min-width: 0;"]) {
+  if (!enProductStepCopyBlock.includes(requiredSnippet)) {
+    throw new Error(`English product step copy should include ${requiredSnippet}`);
   }
 }
 

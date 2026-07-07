@@ -1516,6 +1516,34 @@ html[lang="en"] .tech-card p {
     line-height: 1;
 }
 
+.product-step-copy {
+    display: block;
+    font-style: normal;
+}
+
+html[lang="en"] .product-delivery-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+html[lang="en"] .product-delivery-bar span {
+    min-width: 0;
+    min-height: 54px;
+    padding: 8px 14px;
+    align-items: flex-start;
+    overflow: hidden;
+    white-space: normal;
+    overflow-wrap: anywhere;
+}
+
+html[lang="en"] .product-step-copy {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
+}
+
 .scenario-system {
     display: grid;
     grid-template-columns: minmax(330px, 0.8fr) minmax(530px, 1.2fr);
