@@ -35,8 +35,12 @@ function extractSingle(source, pattern, label) {
   return stripTags(match[1]);
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
 const requiredZhText = [
-  "OptiMax 企业优智大模型",
+  "OptiMax 企业经营私域世界模型",
   "企业经营私域世界模型",
   "让企业经营更智能、更高效、更简单",
   "AI技术",
@@ -55,14 +59,14 @@ const requiredZhText = [
   "FactoryOps",
   "AI交付工程师体系",
   "应用场景",
-  "用真实经营场景证明技术能力",
+  "真实经营场景验证",
   "知名企业真实经营场景",
   "创始团队",
   "申作军教授",
   "曲源博士",
   "张普竣博士",
   "刘安邦博士",
-  "朱晓冬",
+  "朱晓冬博士",
   "朱越",
   "徐茂林",
   "诚聘英才",
@@ -97,13 +101,14 @@ const requiredEnText = [
   "AI Delivery Engineering System",
   "Use Cases",
   "Technical proof in real operations",
+  "Private World Model for Enterprise Operations",
   "well-known enterprises",
   "Founding Team",
   "Prof. Zuo-Jun Max Shen",
   "Dr. Yuan Qu",
   "Dr. Pujun Zhang",
   "Dr. Anbang Liu",
-  "Xiaodong Zhu",
+  "Dr. Xiaodong Zhu",
   "Yue Zhu",
   "Maolin Xu",
   "Careers",
@@ -154,6 +159,20 @@ for (const item of enTechPipelineItems) {
   }
 }
 
+const expectedEnTechPipeline = [
+  ["01", "Structure field problems"],
+  ["02", "Model private data and knowledge"],
+  ["03", "Configure Agent + OR scenarios"],
+  ["04", "Reuse product modules"]
+];
+
+for (const [step, label] of expectedEnTechPipeline) {
+  const pattern = new RegExp(`<span>\\s*<b>${escapeRegExp(step)}<\\/b>\\s*${escapeRegExp(label)}\\s*<\\/span>`);
+  if (!pattern.test(enTechArchitecture[0])) {
+    throw new Error(`English AI technology pipeline should include ${step} ${label}.`);
+  }
+}
+
 const requiredHtmlHooks = [
   "didi-inspired",
   "platform-hero",
@@ -169,8 +188,8 @@ const requiredHtmlHooks = [
   "founder-feature",
   "founder-photo-row",
   "founder-photo-card",
-  "xiaodong-zhu.png",
-  "yue-zhu.png",
+  "xiaodong-zhu-new.jpg",
+  "yue-zhu-new.png",
   "maolin-xu.png",
   "career-panel",
   "hero-scroll-cue",
@@ -234,9 +253,17 @@ const requiredCssHooks = [
   "@keyframes scrollCue"
 ];
 
+const requiredZhRuntimeHooks = [
+  "css/custom.css?v=enterprise-world-model-v8",
+  "js/custom.js?v=enterprise-world-model-v8",
+];
+
+const requiredEnRuntimeHooks = [
+  "css/custom.css?v=enterprise-world-model-v9",
+  "js/custom.js?v=enterprise-world-model-v9",
+];
+
 const requiredRuntimeHooks = [
-  "css/custom.css?v=enterprise-world-model-v3",
-  "js/custom.js?v=enterprise-world-model-v3",
   "optimaxSectionScroll",
   "initHeroCarousel",
   "scrollRestoration",
@@ -250,6 +277,8 @@ const staleZhText = [
   "供应链AI决策",
   "值得信赖的企业AI决策技术",
   "复杂供应链决策",
+  "企业优智大模型",
+  "<p class=\"lead\"><strong>企业经营私域世界模型</strong></p>",
   "OptiFlow 决策中枢",
   "供应链预警系统",
   "RiskOps 供应链风险管理",
@@ -279,6 +308,27 @@ const staleEnText = [
 requireIncludes(zhHtml, requiredZhText, "Chinese content");
 requireIncludes(enHtml, requiredEnText, "English content");
 
+const zhHeroHeading = extractSingle(
+  zhHtml,
+  /<div class="[^"]*hero-copy[^"]*"[\s\S]*?<h1>([\s\S]*?)<\/h1>/,
+  "Chinese hero heading"
+);
+if (zhHeroHeading !== "OptiMax 企业经营私域世界模型") {
+  throw new Error(`Chinese hero heading should be OptiMax 企业经营私域世界模型, got: ${zhHeroHeading}`);
+}
+
+if (!/<img src="images\/xiaodong-zhu-new\.jpg" alt="朱晓冬博士" class="img-responsive">\s*<h3>朱晓冬博士<\/h3>/.test(zhHtml)) {
+  throw new Error("Chinese founder card should label Xiaodong Zhu as 朱晓冬博士.");
+}
+
+if (!/<img src="images\/xiaodong-zhu-new\.jpg" alt="Dr\. Xiaodong Zhu" class="img-responsive">\s*<h3>Dr\. Xiaodong Zhu<\/h3>/.test(enHtml)) {
+  throw new Error("English founder card should label Xiaodong Zhu as Dr. Xiaodong Zhu.");
+}
+
+if (!/<img src="images\/yue-zhu-new\.png" alt="朱越" class="img-responsive">\s*<h3>朱越<\/h3>/.test(zhHtml)) {
+  throw new Error("Chinese founder card should use the updated Yue Zhu photo.");
+}
+
 for (const hook of requiredHtmlHooks) {
   if (!zhHtml.includes(hook) || !enHtml.includes(hook)) {
     throw new Error(`Missing shared homepage layout hook: ${hook}`);
@@ -286,9 +336,80 @@ for (const hook of requiredHtmlHooks) {
 }
 
 requireIncludes(css, requiredCssHooks, "CSS hook");
+requireIncludes(zhHtml, requiredZhRuntimeHooks, "Chinese runtime hook");
+requireIncludes(enHtml, requiredEnRuntimeHooks, "English runtime hook");
 requireIncludes(zhHtml + enHtml + js, requiredRuntimeHooks, "runtime hook");
 requireExcludes(zhHtml, staleZhText, "Chinese content");
 requireExcludes(enHtml, staleEnText, "English content");
+
+function extractCssBlock(source, selector) {
+  const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const match = source.match(new RegExp(`${escapedSelector}\\s*\\{([\\s\\S]*?)\\n\\}`, "m"));
+  if (!match) {
+    throw new Error(`Missing CSS block for ${selector}.`);
+  }
+  return match[1];
+}
+
+function findCssBlockWith(source, selector, requiredSnippets, label) {
+  const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+  const matches = [...source.matchAll(new RegExp(`(^|\\n)${escapedSelector}\\s*\\{([\\s\\S]*?)\\n\\}`, "gm"))];
+  const block = matches.map((match) => match[2]).find((candidate) => requiredSnippets.every((snippet) => candidate.includes(snippet)));
+  if (!block) {
+    throw new Error(`Missing CSS block for ${label}.`);
+  }
+  return block;
+}
+
+const productCoreBlock = extractCssBlock(css, ".product-core");
+if (!productCoreBlock.includes("display: flex;") || !productCoreBlock.includes("flex-direction: column;")) {
+  throw new Error("Product core card should use a column flow so text cannot overlap the layer stack.");
+}
+
+const productLayersBlock = findCssBlockWith(css, ".product-layers", ["margin-top: auto;"], "product layers flow layout");
+if (productLayersBlock.includes("position: absolute;") || !productLayersBlock.includes("position: relative;") || !productLayersBlock.includes("margin-top: auto;")) {
+  throw new Error("Product layers should sit in normal document flow at the bottom of the OptiONE card.");
+}
+
+const joinContactItemBlock = findCssBlockWith(css, ".join-contact-list li", ["display: grid;", "grid-template-columns: 18px minmax(0, 1fr);"], "contact list item layout");
+if (!joinContactItemBlock.includes("display: grid;") || !joinContactItemBlock.includes("grid-template-columns: 18px minmax(0, 1fr);")) {
+  throw new Error("Contact list items should align icon and copy in a stable two-column row.");
+}
+
+if (!css.includes(".join-contact-copy") || !css.includes(".join-contact-value") || !css.includes(".join-contact-list a")) {
+  throw new Error("Contact list should group text cleanly and keep email links inline.");
+}
+
+if (!zhHtml.includes("join-contact-value") || !enHtml.includes("join-contact-value")) {
+  throw new Error("Contact values should be wrapped separately from labels on both homepages.");
+}
+
+const noWrapRequirements = [
+  ".platform-hero h1",
+  ".scenario-proof-panel h2",
+  ".roadmap-lead-line",
+  ".join-footer-column .nowrap-line"
+];
+
+requireIncludes(css, noWrapRequirements, "no-wrap CSS rule");
+
+if (!zhHtml.includes("join-footer-note nowrap-line") || !zhHtml.includes("optimax-footer-note nowrap-line")) {
+  throw new Error("Footer note lines should use nowrap-line wrappers.");
+}
+
+if (!zhHtml.includes('<span class="roadmap-lead-line">产品以 OptiONE 企业级 Agent 协同管控底座为核心，</span><br>') ||
+    !zhHtml.includes('<span class="roadmap-lead-line">向 RiskOps、FactoryOps 与 FDE 交付体系持续沉淀。</span>')) {
+  throw new Error("Chinese product roadmap lead should break after 核心， with two balanced no-wrap lines.");
+}
+
+const zhJoinUsColumn = zhHtml.match(/<div class="join-footer-column">\s*<h3>JOIN US<\/h3>([\s\S]*?)<\/div>\s*<div id="contact"/);
+if (!zhJoinUsColumn) {
+  throw new Error("Chinese JOIN US footer column is missing.");
+}
+
+if (zhJoinUsColumn[1].includes('href="mailto:hr@optimax.hk"') || zhJoinUsColumn[1].includes("hr@optimax.hk")) {
+  throw new Error("Duplicated HR email should be removed from the left JOIN US footer column.");
+}
 
 for (const staleColor of ["#f26f21", "#c74d11"]) {
   if (css.toLowerCase().includes(staleColor)) {
@@ -303,16 +424,40 @@ if (!css.includes("--optimax-accent: #2f6fb7")) {
 const requiredEnglishOverflowRules = [
   'html[lang="en"] .tech-architecture',
   'html[lang="en"] .tech-graph-core',
+  'html[lang="en"] .tech-node-3',
+  'html[lang="en"] .tech-node-4',
   'html[lang="en"] .tech-card',
   'html[lang="en"] .tech-card p',
   'html[lang="en"] .tech-pipeline',
   'html[lang="en"] .tech-pipeline span',
+  'html[lang="en"] .join-footer-column .nowrap-line',
+  'html[lang="en"] .join-contact-copy',
   'html[lang="en"] .scenario-proof-panel',
   'html[lang="en"] .scenario-proof-panel h2',
   'html[lang="en"] .scenario-proof span'
 ];
 
 requireIncludes(css, requiredEnglishOverflowRules, "English scenario overflow rule");
+
+const enCapsuleNodesBlock = findCssBlockWith(
+  css,
+  'html[lang="en"] .tech-node-3,\nhtml[lang="en"] .tech-node-4',
+  ["border-radius: 999px;", "white-space: normal;"],
+  "English technology capsule node layout"
+);
+if (!enCapsuleNodesBlock.includes("width: 132px;") || !enCapsuleNodesBlock.includes("min-height: 56px;")) {
+  throw new Error("English technology long labels should use wider capsule nodes.");
+}
+
+const enFooterNoWrapBlock = extractCssBlock(css, 'html[lang="en"] .join-footer-column .nowrap-line');
+if (!enFooterNoWrapBlock.includes("white-space: normal;")) {
+  throw new Error("English footer notes should wrap instead of forcing one-line text.");
+}
+
+const enContactCopyBlock = extractCssBlock(css, 'html[lang="en"] .join-contact-copy');
+if (!enContactCopyBlock.includes("grid-template-columns: 72px minmax(0, 1fr);")) {
+  throw new Error("English contact labels need enough width for Careers.");
+}
 
 for (const staleScrollRule of [":target", "scroll-margin-top: 128px", "target.offset().top-151", "$target.offset().top"]) {
   if (css.includes(staleScrollRule) || js.includes(staleScrollRule)) {

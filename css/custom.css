@@ -400,11 +400,12 @@ File Description: Place here your custom CSS styles
 
 .platform-hero h1 {
     color: #ffffff;
-    font-size: 58px;
+    font-size: clamp(48px, 5.1vw, 88px);
     font-weight: 650;
     line-height: 1.08;
-    margin: 0 0 24px;
-    max-width: 780px;
+    margin: 0 0 34px;
+    max-width: none;
+    white-space: nowrap;
 }
 
 .platform-hero .lead {
@@ -1000,6 +1001,15 @@ body.profile-drawer-open {
     margin: 0;
 }
 
+.roadmap-lead {
+    max-width: none;
+}
+
+.roadmap-lead-line {
+    display: inline-block;
+    white-space: nowrap;
+}
+
 .tech-tags {
     display: flex;
     flex-wrap: nowrap;
@@ -1200,6 +1210,23 @@ html[lang="en"] .tech-node {
     font-size: 11px;
 }
 
+html[lang="en"] .tech-node-3,
+html[lang="en"] .tech-node-4 {
+    width: 132px;
+    min-height: 56px;
+    padding: 10px 16px;
+    border-radius: 999px;
+    white-space: normal;
+}
+
+html[lang="en"] .tech-node-3 {
+    left: 4%;
+}
+
+html[lang="en"] .tech-node-4 {
+    right: 4%;
+}
+
 html[lang="en"] .tech-node-5 {
     top: 58%;
     width: 104px;
@@ -1213,15 +1240,17 @@ html[lang="en"] .tech-pipeline {
 }
 
 html[lang="en"] .tech-pipeline span {
-    min-height: 48px;
-    padding: 9px 8px;
+    min-height: 56px;
+    padding: 9px 9px;
     font-size: 10px;
-    line-height: 1.24;
+    line-height: 1.28;
+    overflow-wrap: normal;
+    word-break: normal;
 }
 
 html[lang="en"] .tech-pipeline b {
-    margin-bottom: 4px;
-    font-size: 9.5px;
+    margin-bottom: 3px;
+    font-size: 10px;
     letter-spacing: 0.07em;
 }
 
@@ -1302,6 +1331,8 @@ html[lang="en"] .tech-card p {
 }
 
 .product-core {
+    display: flex;
+    flex-direction: column;
     position: relative;
     min-height: clamp(350px, 48vh, 430px);
     padding: 28px;
@@ -1320,6 +1351,15 @@ html[lang="en"] .tech-card p {
     font-size: 54px;
     font-weight: 850;
     line-height: 1;
+}
+
+.product-core small,
+.scenario-proof-panel small,
+.product-core h2,
+.product-core p,
+.product-layers {
+    position: relative;
+    z-index: 1;
 }
 
 .product-core small,
@@ -1342,20 +1382,19 @@ html[lang="en"] .tech-card p {
 }
 
 .product-core p {
-    max-width: 330px;
+    max-width: 420px;
     margin: 20px 0 0;
     color: rgba(255, 255, 255, 0.74);
     font-size: 15px;
-    line-height: 1.68;
+    line-height: 1.58;
 }
 
 .product-layers {
-    position: absolute;
-    left: 28px;
-    right: 28px;
-    bottom: 82px;
+    position: relative;
     display: grid;
     gap: 7px;
+    margin-top: auto;
+    padding-top: clamp(24px, 4vh, 42px);
 }
 
 .product-layers span {
@@ -1484,11 +1523,12 @@ html[lang="en"] .tech-card p {
 }
 
 .scenario-proof-panel h2 {
-    max-width: 440px;
+    max-width: none;
     color: #ffffff;
-    font-size: clamp(31px, 3.2vw, 50px);
+    font-size: clamp(32px, 3vw, 46px);
     line-height: 1.08;
     margin: 0;
+    white-space: nowrap;
 }
 
 .scenario-proof-panel p {
@@ -1531,7 +1571,7 @@ html[lang="en"] .scenario-proof-panel small {
 }
 
 html[lang="en"] .scenario-proof-panel h2 {
-    max-width: 430px;
+    max-width: none;
     font-size: clamp(30px, 2.6vw, 40px);
     line-height: 1.08;
 }
@@ -1938,10 +1978,18 @@ html[lang="en"] .scenario-proof span {
 }
 
 .founder-photo-card img {
+    aspect-ratio: 4 / 4.35;
     height: auto;
-    max-height: 180px;
-    object-fit: contain;
-    object-position: center center;
+    object-fit: cover;
+    object-position: center 28%;
+}
+
+.founder-photo-card img[src*="xiaodong-zhu-new"] {
+    object-position: center 20%;
+}
+
+.founder-photo-card img[src*="yue-zhu-new"] {
+    object-position: center 22%;
 }
 
 .founder-photo-card h3 {
@@ -2025,7 +2073,7 @@ html[lang="en"] .scenario-proof span {
 
 .join-footer-panel {
     display: grid;
-    gap: 24px;
+    gap: 18px;
 }
 
 .join-footer-intro {
@@ -2082,18 +2130,18 @@ html[lang="en"] .scenario-proof span {
 .join-reasons {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 18px 28px;
+    gap: 14px 28px;
     border-top: 1px solid rgba(47, 111, 183, 0.16);
     border-bottom: 1px solid rgba(47, 111, 183, 0.12);
-    padding: 22px 0;
+    padding: 18px 0;
 }
 
 .join-reason {
     border-right: 0;
     border-top: 1px solid rgba(47, 111, 183, 0.1);
     margin: 0;
-    min-height: 128px;
-    padding: 18px 20px 0 0;
+    min-height: 106px;
+    padding: 15px 20px 0 0;
 }
 
 .join-reason + .join-reason {
@@ -2104,7 +2152,7 @@ html[lang="en"] .scenario-proof span {
     color: var(--optimax-ink);
     font-size: 18px;
     line-height: 1.35;
-    margin: 0 0 12px;
+    margin: 0 0 9px;
     text-align: left !important;
 }
 
@@ -2112,16 +2160,18 @@ html[lang="en"] .scenario-proof span {
     border: 0;
     color: var(--optimax-muted);
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
     padding: 0;
 }
 
 .join-footer-grid {
     display: grid;
-    grid-template-columns: 0.82fr 1.36fr 1fr;
-    gap: 48px;
-    padding-top: 2px;
+    grid-template-columns: minmax(190px, 0.82fr) minmax(340px, 1.34fr) minmax(230px, 1fr);
+    gap: clamp(28px, 4.2vw, 56px);
+    align-items: start;
+    border-top: 1px solid rgba(47, 111, 183, 0.12);
+    padding-top: 18px;
 }
 
 .join-footer-column h3 {
@@ -2135,13 +2185,18 @@ html[lang="en"] .scenario-proof span {
 }
 
 .join-footer-column p,
-.join-footer-column a,
-.join-contact-list li {
+.join-footer-column a {
     color: var(--optimax-muted);
     display: block;
     font-size: 14px;
     line-height: 1.7;
     margin: 0 0 8px;
+}
+
+.join-contact-list li {
+    color: var(--optimax-muted);
+    font-size: 14px;
+    line-height: 1.7;
 }
 
 .join-contact {
@@ -2152,22 +2207,98 @@ html[lang="en"] .scenario-proof span {
 
 .join-contact-list.list-icons {
     display: grid;
-    gap: 8px;
+    gap: 7px;
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
 .join-contact-list li {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
+    display: grid;
+    grid-template-columns: 18px minmax(0, 1fr);
+    gap: 10px;
+    margin: 0;
+    min-width: 0;
+    padding: 0;
 }
 
 .join-contact-list i {
+    align-self: start;
     color: var(--optimax-accent);
-    line-height: 1.7;
-    min-width: 15px;
+    line-height: 1.65;
+    min-width: 18px;
+    padding-top: 1px;
+    position: static;
+    text-align: center;
+}
+
+.join-contact-copy {
+    display: grid;
+    grid-template-columns: 54px minmax(0, 1fr);
+    column-gap: 10px;
+    align-items: baseline;
+    min-width: 0;
+    overflow-wrap: anywhere;
+}
+
+.join-contact-copy b {
+    color: rgba(32, 51, 71, 0.82);
+    display: block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    line-height: 1.45;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+.join-contact-value {
+    display: block;
+    min-width: 0;
+}
+
+.join-contact-list a {
+    display: inline;
+    margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.nowrap-line {
+    white-space: nowrap;
+}
+
+.join-footer-column .nowrap-line {
+    white-space: nowrap;
+}
+
+.join-footer-note,
+.optimax-footer-note {
+    max-width: none;
+}
+
+html[lang="en"] .join-footer-grid {
+    grid-template-columns: minmax(210px, 0.95fr) minmax(390px, 1.38fr) minmax(360px, 1.42fr);
+    gap: clamp(26px, 3.4vw, 48px);
+}
+
+html[lang="en"] .join-footer-column .nowrap-line {
+    white-space: normal;
+}
+
+html[lang="en"] .join-footer-note,
+html[lang="en"] .optimax-footer-note {
+    max-width: 46ch;
+    overflow-wrap: normal;
+}
+
+html[lang="en"] .join-contact-copy {
+    grid-template-columns: 72px minmax(0, 1fr);
+    column-gap: 12px;
+    overflow-wrap: normal;
+}
+
+html[lang="en"] .join-contact-copy b {
+    white-space: nowrap;
 }
 
 .join-footer-links {
@@ -2253,7 +2384,7 @@ html[lang="en"] .scenario-proof span {
     }
 
     .platform-hero h1 {
-        font-size: 44px;
+        font-size: clamp(38px, 5.1vw, 52px);
     }
 
     .platform-hero .lead {
@@ -2466,6 +2597,7 @@ html[lang="en"] .scenario-proof span {
     .platform-hero h1 {
         font-size: 31px !important;
         line-height: 1.18;
+        white-space: normal;
     }
 
     .platform-hero .lead {
@@ -2614,6 +2746,10 @@ html[lang="en"] .scenario-proof span {
         font-size: 14px;
         line-height: 1.35;
         margin-bottom: 6px;
+    }
+
+    .roadmap-lead {
+        font-size: 13.6px;
     }
 
     .about-section .section-title,
@@ -2951,7 +3087,7 @@ html[lang="en"] .scenario-proof span {
     }
 
     .join-footer-panel {
-        gap: 13px;
+        gap: 11px;
     }
 
     .join-footer-intro {
@@ -2975,7 +3111,7 @@ html[lang="en"] .scenario-proof span {
 
     .join-reason {
         min-height: 0;
-        padding: 10px 10px 10px 0;
+        padding: 9px 10px 9px 0;
     }
 
     .join-reason + .join-reason {
@@ -2995,8 +3131,8 @@ html[lang="en"] .scenario-proof span {
 
     .join-footer-grid {
         grid-template-columns: 1fr;
-        gap: 10px;
-        padding-top: 0;
+        gap: 9px;
+        padding-top: 10px;
     }
 
     .join-footer-grid .join-footer-column:last-child {
@@ -3009,19 +3145,41 @@ html[lang="en"] .scenario-proof span {
     }
 
     .join-footer-column p,
-    .join-footer-column a,
-    .join-contact-list li {
+    .join-footer-column a {
         font-size: 10.2px;
         line-height: 1.32;
         margin-bottom: 3px;
     }
 
+    .join-contact-list li {
+        font-size: 10.2px;
+        line-height: 1.32;
+    }
+
     .join-contact-list.list-icons {
-        gap: 2px;
+        gap: 5px;
     }
 
     .join-contact-list li {
-        gap: 5px;
+        grid-template-columns: 16px minmax(0, 1fr);
+        gap: 8px;
+        padding: 0;
+    }
+
+    .join-contact-list i {
+        min-width: 16px;
+        padding-top: 0;
+    }
+
+    .join-contact-copy b {
+        font-size: 9.5px;
+        line-height: 1.15;
+        margin-bottom: 1px;
+    }
+
+    .join-contact-copy {
+        grid-template-columns: 38px minmax(0, 1fr);
+        column-gap: 7px;
     }
 
     .join-footer-links {
@@ -3086,6 +3244,10 @@ html[lang="en"] .scenario-proof span {
 
     .tech-intro .section-lead {
         font-size: 17px;
+    }
+
+    .roadmap-lead-line {
+        white-space: normal;
     }
 
     .tech-architecture {
@@ -3308,6 +3470,7 @@ html[lang="en"] .scenario-proof span {
 
     .scenario-proof-panel h2 {
         font-size: 28px;
+        white-space: normal;
     }
 
     .scenario-proof {
@@ -3409,7 +3572,11 @@ html[lang="en"] .scenario-proof span {
 
     .join-application p,
     .join-footer-column p,
-    .join-footer-column a,
+    .join-footer-column a {
+        font-size: 12px;
+        line-height: 1.45;
+    }
+
     .join-contact-list li {
         font-size: 12px;
         line-height: 1.45;
