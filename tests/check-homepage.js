@@ -64,7 +64,10 @@ const requiredZhText = [
   "创始团队",
   "申作军教授",
   "中国工程院外籍院士，曾任香港大学副校长（研究）",
-  "现为香港大学工程学院及经济及工商管理学院双聘讲座教授",
+  "现为香港大学校长高级顾问、工程学院及经济及工商管理学院双聘讲座教授、研究生院院长",
+  "申教授于 2013 年加入清华大学并任特聘教授",
+  "并于 2025 年获评中国工程院外籍院士",
+  "人工智能与运筹优化协同（AI + OR）",
   "曲源博士",
   "张普竣博士",
   "刘安邦博士",
@@ -107,8 +110,13 @@ const requiredEnText = [
   "well-known enterprises",
   "Founding Team",
   "Prof. Zuo-Jun Max Shen",
-  "Foreign Member of the Chinese Academy of Engineering, served as Vice-President (Research) of the University of Hong Kong",
-  "currently a chaired professor jointly appointed by the Faculty of Engineering and the Faculty of Business and Economics at the University of Hong Kong",
+  "Foreign Member of the Chinese Academy of Engineering and previously served as Vice-President (Research) of the University of Hong Kong",
+  "currently Senior Advisor to the President of the University of Hong Kong",
+  "jointly appointed Chair Professor in the Faculty of Engineering and the Faculty of Business and Economics",
+  "Dean of the Graduate School",
+  "In 2013, he joined Tsinghua University as a Distinguished Professor",
+  "elected a Foreign Member of the Chinese Academy of Engineering in 2025",
+  "the integration of artificial intelligence and operations research (AI + OR)",
   "Dr. Yuan Qu",
   "Dr. Pujun Zhang",
   "Dr. Anbang Liu",
@@ -327,7 +335,9 @@ const staleZhText = [
   "Page 3 /",
   "公司由香港大学副校长、",
   "申作军教授是香港大学副校长（研究）",
-  "是中国工程院外籍院士，工程学院及经济及工商管理学院"
+  "是中国工程院外籍院士，工程学院及经济及工商管理学院",
+  "现为香港大学工程学院及经济及工商管理学院双聘讲座教授",
+  "2004年加入加州大学伯克利分校，后晋升为校长教授及工业工程及运筹学系系主任。他曾任清华-伯克利深圳学院中心主任"
 ];
 
 const staleEnText = [
@@ -348,7 +358,9 @@ const staleEnText = [
   "Page 3 /",
   "Professor Zuo-Jun Max Shen, Vice-President (Research)",
   "Professor Shen is the Vice-President (Research)",
-  "He is a chaired professor jointly appointed by the Faculty of Engineering and the Faculty of Business and Economics"
+  "Foreign Member of the Chinese Academy of Engineering, served as Vice-President (Research)",
+  "He is a chaired professor jointly appointed by the Faculty of Engineering and the Faculty of Business and Economics",
+  "currently a chaired professor jointly appointed by the Faculty of Engineering and the Faculty of Business and Economics at the University of Hong Kong"
 ];
 
 requireIncludes(zhHtml, requiredZhText, "Chinese content");
