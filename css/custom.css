@@ -1175,6 +1175,11 @@ body.profile-drawer-open {
     line-height: 1.36;
 }
 
+.tech-step-copy {
+    display: block;
+    font-style: normal;
+}
+
 .tech-pipeline b {
     display: block;
     margin-bottom: 4px;
@@ -1240,18 +1245,34 @@ html[lang="en"] .tech-pipeline {
 }
 
 html[lang="en"] .tech-pipeline span {
-    min-height: 56px;
-    padding: 9px 9px;
+    display: flex;
+    min-width: 0;
+    min-height: 68px;
+    padding: 9px 12px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
     font-size: 10px;
     line-height: 1.28;
-    overflow-wrap: normal;
+    overflow: hidden;
+    overflow-wrap: anywhere;
     word-break: normal;
 }
 
 html[lang="en"] .tech-pipeline b {
-    margin-bottom: 3px;
+    flex: 0 0 auto;
+    margin-bottom: 5px;
     font-size: 10px;
     letter-spacing: 0.07em;
+}
+
+html[lang="en"] .tech-step-copy {
+    display: block;
+    min-width: 0;
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: normal;
 }
 
 html[lang="en"] .tech-card-grid {

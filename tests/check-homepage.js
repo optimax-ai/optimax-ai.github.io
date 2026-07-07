@@ -167,7 +167,7 @@ const expectedEnTechPipeline = [
 ];
 
 for (const [step, label] of expectedEnTechPipeline) {
-  const pattern = new RegExp(`<span>\\s*<b>${escapeRegExp(step)}<\\/b>\\s*${escapeRegExp(label)}\\s*<\\/span>`);
+  const pattern = new RegExp(`<span>\\s*<b>${escapeRegExp(step)}<\\/b>\\s*<em class="tech-step-copy">${escapeRegExp(label)}<\\/em>\\s*<\\/span>`);
   if (!pattern.test(enTechArchitecture[0])) {
     throw new Error(`English AI technology pipeline should include ${step} ${label}.`);
   }
@@ -259,8 +259,8 @@ const requiredZhRuntimeHooks = [
 ];
 
 const requiredEnRuntimeHooks = [
-  "css/custom.css?v=enterprise-world-model-v9",
-  "js/custom.js?v=enterprise-world-model-v9",
+  "css/custom.css?v=enterprise-world-model-v10",
+  "js/custom.js?v=enterprise-world-model-v10",
 ];
 
 const requiredRuntimeHooks = [
@@ -430,6 +430,7 @@ const requiredEnglishOverflowRules = [
   'html[lang="en"] .tech-card p',
   'html[lang="en"] .tech-pipeline',
   'html[lang="en"] .tech-pipeline span',
+  'html[lang="en"] .tech-step-copy',
   'html[lang="en"] .join-footer-column .nowrap-line',
   'html[lang="en"] .join-contact-copy',
   'html[lang="en"] .scenario-proof-panel',
@@ -452,6 +453,13 @@ if (!enCapsuleNodesBlock.includes("width: 132px;") || !enCapsuleNodesBlock.inclu
 const enFooterNoWrapBlock = extractCssBlock(css, 'html[lang="en"] .join-footer-column .nowrap-line');
 if (!enFooterNoWrapBlock.includes("white-space: normal;")) {
   throw new Error("English footer notes should wrap instead of forcing one-line text.");
+}
+
+const enTechStepCopyBlock = extractCssBlock(css, 'html[lang="en"] .tech-step-copy');
+for (const requiredSnippet of ["display: block;", "white-space: normal;", "overflow-wrap: anywhere;", "min-width: 0;"]) {
+  if (!enTechStepCopyBlock.includes(requiredSnippet)) {
+    throw new Error(`English technology step copy should include ${requiredSnippet}`);
+  }
 }
 
 const enContactCopyBlock = extractCssBlock(css, 'html[lang="en"] .join-contact-copy');
