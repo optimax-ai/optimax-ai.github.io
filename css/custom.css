@@ -1106,11 +1106,11 @@ body.profile-drawer-open {
     position: absolute;
     display: grid;
     place-items: center;
-    width: 80px;
-    min-height: 68px;
-    padding: 9px;
+    width: 116px;
+    min-height: 48px;
+    padding: 10px 16px;
     border: 1px solid rgba(47, 111, 183, 0.2);
-    border-radius: 50%;
+    border-radius: 999px;
     background: rgba(255, 255, 255, 0.94);
     color: #20314a;
     font-size: 12px;
@@ -1118,6 +1118,11 @@ body.profile-drawer-open {
     line-height: 1.25;
     text-align: center;
     box-shadow: 0 16px 30px rgba(47, 111, 183, 0.09);
+}
+
+.tech-node-copy {
+    display: block;
+    white-space: nowrap;
 }
 
 .tech-node-1 {
@@ -1209,8 +1214,8 @@ html[lang="en"] .tech-graph-ring {
 }
 
 html[lang="en"] .tech-node {
-    width: 74px;
-    min-height: 62px;
+    width: 104px;
+    min-height: 52px;
     padding: 8px;
     font-size: 11px;
 }
@@ -3459,28 +3464,28 @@ html[lang="en"] .join-contact-copy b {
     }
 
     .tech-node {
-        width: 74px;
-        min-height: 64px;
+        width: 112px;
+        min-height: 46px;
         font-size: 11px;
     }
 
     .tech-node-1 {
-        left: 8%;
+        left: 4%;
         top: 68px;
     }
 
     .tech-node-2 {
-        right: 8%;
+        right: 4%;
         top: 68px;
     }
 
     .tech-node-3 {
-        left: 6%;
+        left: 4%;
         top: 218px;
     }
 
     .tech-node-4 {
-        right: 6%;
+        right: 4%;
         top: 218px;
     }
 

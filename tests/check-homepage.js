@@ -63,6 +63,8 @@ const requiredZhText = [
   "知名企业真实经营场景",
   "创始团队",
   "申作军教授",
+  "曾任香港大学副校长（研究）",
+  "中国工程院外籍院士",
   "曲源博士",
   "张普竣博士",
   "刘安邦博士",
@@ -105,6 +107,8 @@ const requiredEnText = [
   "well-known enterprises",
   "Founding Team",
   "Prof. Zuo-Jun Max Shen",
+  "former Vice-President (Research)",
+  "Foreign Member of the Chinese Academy of Engineering",
   "Dr. Yuan Qu",
   "Dr. Pujun Zhang",
   "Dr. Anbang Liu",
@@ -165,6 +169,24 @@ const expectedEnTechPipeline = [
   ["03", "Configure Agent + OR scenarios"],
   ["04", "Reuse product modules"]
 ];
+
+const expectedZhTechNodeLabels = [
+  ["tech-node-1", "业务知识图谱"],
+  ["tech-node-2", "经营约束建模"],
+  ["tech-node-3", "多 Agent 协同"],
+  ["tech-node-4", "OR 求解优化"]
+];
+
+for (const [nodeClass, label] of expectedZhTechNodeLabels) {
+  const pattern = new RegExp(`<div class="tech-node ${nodeClass}">\\s*<span class="tech-node-copy">${escapeRegExp(label)}<\\/span>\\s*<\\/div>`);
+  if (!pattern.test(zhHtml)) {
+    throw new Error(`Chinese ${nodeClass} should keep a single unbroken capsule label: ${label}.`);
+  }
+}
+
+if (!/<div class="tech-graph-core">\s*企业经营私域\s*<br>\s*世界模型\s*<\/div>/.test(zhHtml)) {
+  throw new Error("Chinese technology core should use a balanced explicit line break.");
+}
 
 for (const [step, label] of expectedEnTechPipeline) {
   const pattern = new RegExp(`<span>\\s*<b>${escapeRegExp(step)}<\\/b>\\s*<em class="tech-step-copy">${escapeRegExp(label)}<\\/em>\\s*<\\/span>`);
@@ -266,13 +288,13 @@ const requiredCssHooks = [
 ];
 
 const requiredZhRuntimeHooks = [
-  "css/custom.css?v=enterprise-world-model-v8",
-  "js/custom.js?v=enterprise-world-model-v8",
+  "css/custom.css?v=enterprise-world-model-v13",
+  "js/custom.js?v=enterprise-world-model-v13",
 ];
 
 const requiredEnRuntimeHooks = [
-  "css/custom.css?v=enterprise-world-model-v12",
-  "js/custom.js?v=enterprise-world-model-v12",
+  "css/custom.css?v=enterprise-world-model-v13",
+  "js/custom.js?v=enterprise-world-model-v13",
 ];
 
 const requiredRuntimeHooks = [
@@ -302,7 +324,9 @@ const staleZhText = [
   "Webpage template: Worthy",
   "Page 1 /",
   "Page 2 /",
-  "Page 3 /"
+  "Page 3 /",
+  "公司由香港大学副校长、",
+  "申作军教授是香港大学副校长（研究）"
 ];
 
 const staleEnText = [
@@ -320,7 +344,9 @@ const staleEnText = [
   "Webpage template: Worthy",
   "Page 1 /",
   "Page 2 /",
-  "Page 3 /"
+  "Page 3 /",
+  "Professor Zuo-Jun Max Shen, Vice-President (Research)",
+  "Professor Shen is the Vice-President (Research)"
 ];
 
 requireIncludes(zhHtml, requiredZhText, "Chinese content");
@@ -359,6 +385,10 @@ requireIncludes(enHtml, requiredEnRuntimeHooks, "English runtime hook");
 requireIncludes(zhHtml + enHtml + js, requiredRuntimeHooks, "runtime hook");
 requireExcludes(zhHtml, staleZhText, "Chinese content");
 requireExcludes(enHtml, staleEnText, "English content");
+
+if (!css.includes(".tech-node-copy") || !css.includes("white-space: nowrap;")) {
+  throw new Error("Chinese technology nodes need nowrap label wrappers to prevent awkward auto wrapping.");
+}
 
 function extractCssBlock(source, selector) {
   const escapedSelector = selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
